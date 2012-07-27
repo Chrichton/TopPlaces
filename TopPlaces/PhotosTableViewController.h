@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  PhotosTableViewController.h
 //  TopPlaces
 //
 //  Created by Heiko Goes on 27.07.12.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface PhotosTableViewController : UITableViewController
+
+@property (nonatomic, strong) NSArray *photos;
 
 @end

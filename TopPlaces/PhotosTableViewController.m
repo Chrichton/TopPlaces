@@ -1,24 +1,20 @@
 //
-//  PlacesTableViewController.m
+//  PhotosTableViewController.m
 //  TopPlaces
 //
 //  Created by Heiko Goes on 27.07.12.
 //  Copyright (c) 2012 Heiko Goes. All rights reserved.
 //
 
-#import "PlacesTableViewController.h"
-#import "FlickrFetcher.h"
 #import "PhotosTableViewController.h"
 
-@interface PlacesTableViewController ()
-
-@property (nonatomic, strong) NSArray *places;
+@interface PhotosTableViewController ()
 
 @end
- 
-@implementation PlacesTableViewController
 
-@synthesize places = _places;
+@implementation PhotosTableViewController
+
+@synthesize photos = _photos;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -56,21 +52,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.places count];
+    return [self.photos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"PlacesTableViewCell";
+    static NSString *CellIdentifier = @"PhotosTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    NSDictionary *place = [self.places objectAtIndex:indexPath.row];
-    NSString *content = [place valueForKey:@"_content"];
-    NSMutableArray *listItems = [[content componentsSeparatedByString:@", "] mutableCopy];
+    NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
+    cell.textLabel.text = [photo valueForKey:@"title"];
+//    cell.detailTextLabel.text = [photo valueForKey:@"description"];
     
-    cell.textLabel.text = [listItems objectAtIndex:0];
-    
-    cell.detailTextLabel.text = [content substringFromIndex:[cell.textLabel.text length] + 2];
     return cell;
 }
 
@@ -112,24 +105,6 @@
     return YES;
 }
 */
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"PlacesToPhotosSegue"]) {
-        UITableViewCell *cell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        NSDictionary *place = [self.places objectAtIndex:indexPath.row];
-        
-        PhotosTableViewController *photosController = [segue destinationViewController];
-        photosController.photos = [FlickrFetcher photosInPlace:place maxResults:30];
-    }
-}
-
-- (NSArray *)places {
-    if (! _places)
-        _places = [FlickrFetcher topPlaces];
-        
-    return _places;
-}
 
 #pragma mark - Table view delegate
 

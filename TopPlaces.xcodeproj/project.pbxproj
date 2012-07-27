@@ -15,10 +15,8 @@
 		FF4B5A8215C2EF9700217AA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5A8115C2EF9700217AA2 /* AppDelegate.m */; };
 		FF4B5A8515C2EF9700217AA2 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A8315C2EF9700217AA2 /* MainStoryboard_iPhone.storyboard */; };
 		FF4B5A8815C2EF9700217AA2 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A8615C2EF9700217AA2 /* MainStoryboard_iPad.storyboard */; };
-		FF4B5A8B15C2EF9700217AA2 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5A8A15C2EF9700217AA2 /* FirstViewController.m */; };
 		FF4B5A8D15C2EF9700217AA2 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A8C15C2EF9700217AA2 /* first.png */; };
 		FF4B5A8F15C2EF9700217AA2 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A8E15C2EF9700217AA2 /* first@2x.png */; };
-		FF4B5A9215C2EF9800217AA2 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5A9115C2EF9800217AA2 /* SecondViewController.m */; };
 		FF4B5A9415C2EF9800217AA2 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A9315C2EF9800217AA2 /* second.png */; };
 		FF4B5A9615C2EF9800217AA2 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A9515C2EF9800217AA2 /* second@2x.png */; };
 		FF4B5A9E15C2EF9800217AA2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4B5A9D15C2EF9800217AA2 /* SenTestingKit.framework */; };
@@ -30,6 +28,8 @@
 		FF4B5AB915C2F21400217AA2 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5AB615C2F21400217AA2 /* FlickrFetcher.m */; };
 		FF4B5ABC15C2F36600217AA2 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */; };
 		FF4B5ABD15C2F36600217AA2 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */; };
+		FF4B5AC415C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */; };
+		FF4B5AC515C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +55,8 @@
 		FF4B5A8115C2EF9700217AA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FF4B5A8415C2EF9700217AA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FF4B5A8715C2EF9700217AA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		FF4B5A8915C2EF9700217AA2 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		FF4B5A8A15C2EF9700217AA2 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		FF4B5A8C15C2EF9700217AA2 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		FF4B5A8E15C2EF9700217AA2 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		FF4B5A9015C2EF9700217AA2 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		FF4B5A9115C2EF9800217AA2 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		FF4B5A9315C2EF9800217AA2 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		FF4B5A9515C2EF9800217AA2 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		FF4B5A9C15C2EF9800217AA2 /* TopPlacesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopPlacesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +70,8 @@
 		FF4B5AB715C2F21400217AA2 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		FF4B5ABA15C2F36600217AA2 /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTableViewController.h; sourceTree = "<group>"; };
 		FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
+		FF4B5AC215C2FBAF00217AA2 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
+		FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,12 +138,10 @@
 				FF4B5A8615C2EF9700217AA2 /* MainStoryboard_iPad.storyboard */,
 				FF4B5ABA15C2F36600217AA2 /* PlacesTableViewController.h */,
 				FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */,
-				FF4B5A8915C2EF9700217AA2 /* FirstViewController.h */,
-				FF4B5A8A15C2EF9700217AA2 /* FirstViewController.m */,
+				FF4B5AC215C2FBAF00217AA2 /* PhotosTableViewController.h */,
+				FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */,
 				FF4B5A8C15C2EF9700217AA2 /* first.png */,
 				FF4B5A8E15C2EF9700217AA2 /* first@2x.png */,
-				FF4B5A9015C2EF9700217AA2 /* SecondViewController.h */,
-				FF4B5A9115C2EF9800217AA2 /* SecondViewController.m */,
 				FF4B5A9315C2EF9800217AA2 /* second.png */,
 				FF4B5A9515C2EF9800217AA2 /* second@2x.png */,
 				FF4B5A7815C2EF9700217AA2 /* Supporting Files */,
@@ -307,10 +303,9 @@
 			files = (
 				FF4B5A7E15C2EF9700217AA2 /* main.m in Sources */,
 				FF4B5A8215C2EF9700217AA2 /* AppDelegate.m in Sources */,
-				FF4B5A8B15C2EF9700217AA2 /* FirstViewController.m in Sources */,
-				FF4B5A9215C2EF9800217AA2 /* SecondViewController.m in Sources */,
 				FF4B5AB815C2F21400217AA2 /* FlickrFetcher.m in Sources */,
 				FF4B5ABC15C2F36600217AA2 /* PlacesTableViewController.m in Sources */,
+				FF4B5AC415C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +316,7 @@
 				FF4B5AAB15C2EF9800217AA2 /* TopPlacesTests.m in Sources */,
 				FF4B5AB915C2F21400217AA2 /* FlickrFetcher.m in Sources */,
 				FF4B5ABD15C2F36600217AA2 /* PlacesTableViewController.m in Sources */,
+				FF4B5AC515C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
