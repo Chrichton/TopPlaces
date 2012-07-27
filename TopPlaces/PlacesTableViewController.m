@@ -120,7 +120,7 @@
         NSDictionary *place = [self.places objectAtIndex:indexPath.row];
         
         PhotosTableViewController *photosController = [segue destinationViewController];
-        photosController.photos = [FlickrFetcher photosInPlace:place maxResults:30];
+        photosController.photos = [FlickrFetcher photosInPlace:place maxResults:50];
     }
 }
 

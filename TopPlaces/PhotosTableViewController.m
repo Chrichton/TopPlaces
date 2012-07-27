@@ -62,7 +62,7 @@
     
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
     cell.textLabel.text = [photo valueForKey:@"title"];
-//    cell.detailTextLabel.text = [photo valueForKey:@"description"];
+    cell.detailTextLabel.text = [photo valueForKeyPath:@"description._content"];
     
     return cell;
 }
