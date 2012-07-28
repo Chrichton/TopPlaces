@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController : UIViewController
+@interface PhotoViewController : UIViewController<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIImage *photo;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end
