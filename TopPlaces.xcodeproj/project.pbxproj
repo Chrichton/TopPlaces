@@ -30,6 +30,7 @@
 		FF4B5ABD15C2F36600217AA2 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */; };
 		FF4B5AC415C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */; };
 		FF4B5AC515C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */; };
+		FF6975DB15C3D9B600E3D45E /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
 		FF4B5AC215C2FBAF00217AA2 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
+		FF6975D915C3D9B600E3D45E /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				FF4B5A8115C2EF9700217AA2 /* AppDelegate.m */,
 				FF4B5A8315C2EF9700217AA2 /* MainStoryboard_iPhone.storyboard */,
 				FF4B5A8615C2EF9700217AA2 /* MainStoryboard_iPad.storyboard */,
+				FF6975D915C3D9B600E3D45E /* PhotoViewController.h */,
+				FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */,
 				FF4B5ABA15C2F36600217AA2 /* PlacesTableViewController.h */,
 				FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */,
 				FF4B5AC215C2FBAF00217AA2 /* PhotosTableViewController.h */,
@@ -306,6 +311,7 @@
 				FF4B5AB815C2F21400217AA2 /* FlickrFetcher.m in Sources */,
 				FF4B5ABC15C2F36600217AA2 /* PlacesTableViewController.m in Sources */,
 				FF4B5AC415C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */,
+				FF6975DB15C3D9B600E3D45E /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +498,7 @@
 				FF4B5AB015C2EF9800217AA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF4B5AB115C2EF9800217AA2 /* Build configuration list for PBXNativeTarget "TopPlacesTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +507,7 @@
 				FF4B5AB315C2EF9800217AA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

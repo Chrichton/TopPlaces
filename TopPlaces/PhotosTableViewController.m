@@ -7,6 +7,8 @@
 //
 
 #import "PhotosTableViewController.h"
+#import "PhotoViewController.h"
+#import "FlickrFetcher.h"
 
 @interface PhotosTableViewController ()
 
@@ -117,6 +119,18 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PhotoSegue"]) {
+        PhotoViewController *photoController = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
+        NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatOriginal];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        photoController.photo = image;
+    }
 }
 
 @end
