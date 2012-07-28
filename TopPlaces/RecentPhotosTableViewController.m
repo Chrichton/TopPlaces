@@ -29,7 +29,25 @@
     if (!photos)
         photos = [NSMutableArray array];
     
+    NSString *photoId =  [photo valueForKey:@"id"];
+    
+    NSIndexSet *indices = [photos indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *evaluatedPhotoId = [obj valueForKey:@"id"];
+        if ([evaluatedPhotoId isEqualToString:photoId]) {
+            *stop = YES;
+            return YES;
+        } else
+            return NO;
+    }];
+    
+    if ([indices count] > 0) {
+        NSUInteger foundPhotoIndex = [indices firstIndex];
+        [photos removeObjectAtIndex:foundPhotoIndex];
+    } else if ([photos count] == 20)
+        [photos removeLastObject];
+  
     [photos insertObject:photo atIndex:0];
+    
     [[NSUserDefaults standardUserDefaults] setObject:photos forKey:RECENT_PHOTOS_KEY];
 }
 

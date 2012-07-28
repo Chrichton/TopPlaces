@@ -28,6 +28,7 @@
     self.photoImageView.image = self.photo;
     self.photoImageView.frame = CGRectMake(0, 0, self.photo.size.width, self.photo.size.height);
 
+    self.scrollView.zoomScale = 1;
     self.scrollView.contentSize = self.photo.size;
 }
 
