@@ -40,9 +40,9 @@
     cell.detailTextLabel.text = [photo valueForKeyPath:@"description._content"];
     
     NSString *title = [photo valueForKey:@"title"];
-    if (!title) {
-        if (cell.detailTextLabel.text)
-            title = cell.textLabel.text;
+    if (title.length == 0) {
+        if (cell.detailTextLabel.text.length > 0)
+            title = cell.detailTextLabel.text;
         else
             title = NSLocalizedString(@"unknown", @"unknown");
     }
