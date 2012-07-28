@@ -63,8 +63,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-    cell.textLabel.text = [photo valueForKey:@"title"];
     cell.detailTextLabel.text = [photo valueForKeyPath:@"description._content"];
+    
+    NSString *title = [photo valueForKey:@"title"];
+    if (!title) {
+        if (cell.detailTextLabel.text)
+            title = cell.textLabel.text;
+        else
+            title = NSLocalizedString(@"unknown", @"unknown");
+    }
+    
+    cell.textLabel.text = title;
     
     return cell;
 }
@@ -125,11 +134,13 @@
     if ([segue.identifier isEqualToString:@"PhotoSegue"]) {
         PhotoViewController *photoController = segue.destinationViewController;
         
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        UITableViewCell * cell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
         NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         photoController.photo = image;
+        photoController.photoTitle = cell.textLabel.text;
     }
 }
 

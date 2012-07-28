@@ -15,7 +15,7 @@
 @end
 
 @implementation PhotoViewController
-@synthesize photoImageView = _photoImageView;
+@synthesize photoImageView = _photoImageView, photoTitle = _photoTitle;
 
 @synthesize photo = _photo;
 @synthesize scrollView = _scrollView;
@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
     
+    self.title = self.photoTitle;
     self.photoImageView.image = self.photo;
     self.photoImageView.frame = CGRectMake(0, 0, self.photo.size.width, self.photo.size.height);
 

@@ -126,7 +126,11 @@
 
 - (NSArray *)places {
     if (! _places)
-        _places = [FlickrFetcher topPlaces];
+        _places = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* a, NSDictionary* b) {
+            NSString *first = [a valueForKey:@"_content"];
+            NSString *second = [b valueForKey:@"_content"];
+            return [first compare:second];
+        }];
         
     return _places;
 }
