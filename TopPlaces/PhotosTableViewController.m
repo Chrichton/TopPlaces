@@ -127,7 +127,7 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatOriginal];
+        NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         photoController.photo = image;
     }
