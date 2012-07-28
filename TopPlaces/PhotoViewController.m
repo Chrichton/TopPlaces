@@ -34,8 +34,13 @@
     [super viewDidLoad];
     
     self.photoImageView.image = self.photo;
-    self.scrollView.contentSize = self.photo.size;
     self.photoImageView.frame = CGRectMake(0, 0, self.photo.size.width, self.photo.size.height);
+
+    self.scrollView.contentSize = self.photo.size;
+    CGFloat heightScale = self.scrollView.bounds.size.height / self.photoImageView.bounds.size.height;
+    CGFloat widthScale = self.scrollView.bounds.size.width / self.photoImageView.bounds.size.width;
+    
+    self.scrollView.zoomScale = MIN(heightScale, widthScale);
 }
 
 - (void)viewDidUnload
@@ -48,7 +53,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
