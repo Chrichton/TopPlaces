@@ -38,10 +38,13 @@
     self.photoImageView.frame = CGRectMake(0, 0, self.photo.size.width, self.photo.size.height);
 
     self.scrollView.contentSize = self.photo.size;
-    CGFloat heightScale = self.scrollView.bounds.size.height / self.photoImageView.bounds.size.height;
-    CGFloat widthScale = self.scrollView.bounds.size.width / self.photoImageView.bounds.size.width;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    CGFloat heightScale = self.scrollView.bounds.size.height / self.scrollView.contentSize.height;
+    CGFloat widthScale = self.scrollView.bounds.size.width / self.scrollView.contentSize.width;
     
-    self.scrollView.zoomScale = MIN(heightScale, widthScale);
+    self.scrollView.zoomScale = MIN(heightScale, widthScale);    
 }
 
 - (void)viewDidUnload
