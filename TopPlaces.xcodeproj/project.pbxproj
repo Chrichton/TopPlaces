@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF209FCF15C43B4F00D88F6E /* RecentPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF209FCE15C43B4F00D88F6E /* RecentPhotosTableViewController.m */; };
 		FF4B5A7215C2EF9700217AA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4B5A7115C2EF9700217AA2 /* UIKit.framework */; };
 		FF4B5A7415C2EF9700217AA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4B5A7315C2EF9700217AA2 /* Foundation.framework */; };
 		FF4B5A7615C2EF9700217AA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4B5A7515C2EF9700217AA2 /* CoreGraphics.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF209FCD15C43B4F00D88F6E /* RecentPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosTableViewController.h; sourceTree = "<group>"; };
+		FF209FCE15C43B4F00D88F6E /* RecentPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosTableViewController.m; sourceTree = "<group>"; };
 		FF4B5A6D15C2EF9700217AA2 /* TopPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF4B5A7115C2EF9700217AA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FF4B5A7315C2EF9700217AA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */,
 				FF4B5AC215C2FBAF00217AA2 /* PhotosTableViewController.h */,
 				FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */,
+				FF209FCD15C43B4F00D88F6E /* RecentPhotosTableViewController.h */,
+				FF209FCE15C43B4F00D88F6E /* RecentPhotosTableViewController.m */,
 				FF4B5A8C15C2EF9700217AA2 /* first.png */,
 				FF4B5A8E15C2EF9700217AA2 /* first@2x.png */,
 				FF4B5A9315C2EF9800217AA2 /* second.png */,
@@ -312,6 +317,7 @@
 				FF4B5ABC15C2F36600217AA2 /* PlacesTableViewController.m in Sources */,
 				FF4B5AC415C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */,
 				FF6975DB15C3D9B600E3D45E /* PhotoViewController.m in Sources */,
+				FF209FCF15C43B4F00D88F6E /* RecentPhotosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

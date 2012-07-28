@@ -19,13 +19,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="Qig-Cx-koC" kind="relationship" relationship="viewControllers" id="yxk-jG-xM9"/>
-                        <segue destination="ZJb-7O-eIr" kind="relationship" relationship="viewControllers" id="9Fc-5P-74g"/>
+                        <segue destination="Fx2-Z1-Opm" kind="relationship" relationship="viewControllers" id="EgQ-9o-Pp1"/>
                     </connections>
                 </tabBarController>
             </objects>
             <point key="canvasLocation" x="-2969" y="-276"/>
         </scene>
-        <!--Photos Table View Controller - Photos-->
+        <!--Photos Table View Controller-->
         <scene sceneID="I9X-vz-QJS">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekS-nb-8Jo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,13 +69,62 @@
                             <outlet property="delegate" destination="ZJb-7O-eIr" id="jKf-bj-kNn"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Photos" id="UoE-9V-qJv"/>
                     <navigationItem key="navigationItem" id="VVK-F9-k6e"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-1968" y="327"/>
+            <point key="canvasLocation" x="-644" y="-885"/>
+        </scene>
+        <!--Recent Photos Table View Controller-->
+        <scene sceneID="kAQ-9Y-0A3">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X4c-5s-HSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="1BR-qa-rge" customClass="RecentPhotosTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1CK-OJ-wSK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotosTableViewCell" textLabel="XHd-C5-XhJ" detailTextLabel="Z9S-zN-m2i" style="IBUITableViewCellStyleSubtitle" id="G81-xb-zyN">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XHd-C5-XhJ">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z9S-zN-m2i">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="Bsg-FT-AKt" kind="push" identifier="PhotoSegue" id="eGM-iN-BHD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1BR-qa-rge" id="oJP-VE-vj5"/>
+                            <outlet property="delegate" destination="1BR-qa-rge" id="f7U-Eg-wUe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="iMI-Wb-iru"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-1257" y="406"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="2Ln-HA-1eC">
@@ -110,7 +159,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-925" y="361"/>
+            <point key="canvasLocation" x="-624" y="406"/>
         </scene>
         <!--Places Table View Controller-->
         <scene sceneID="3hq-j1-yGr">
@@ -161,7 +210,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-936" y="-885"/>
+            <point key="canvasLocation" x="-1268" y="-885"/>
         </scene>
         <!--Navigation Controller - Places-->
         <scene sceneID="BG9-yE-EJo">
@@ -183,28 +232,32 @@
             </objects>
             <point key="canvasLocation" x="-1910" y="-885"/>
         </scene>
+        <!--Navigation Controller - Photos-->
+        <scene sceneID="Zds-e1-t1j">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EZP-h0-8wp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="Fx2-Z1-Opm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Photos" id="pCa-hP-z4d"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GlI-NL-Imb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1BR-qa-rge" kind="relationship" relationship="rootViewController" id="Vdc-yJ-Flm"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1879" y="414"/>
+        </scene>
     </scenes>
-    <classes>
-        <class className="PhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="PhotosTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosTableViewController.h"/>
-        </class>
-        <class className="PlacesTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Q2U-Wo-GEC"/>
+        <segue reference="eGM-iN-BHD"/>
     </inferredMetricsTieBreakers>
 </document>
