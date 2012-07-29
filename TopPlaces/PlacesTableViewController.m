@@ -13,7 +13,7 @@
 
 @interface PlacesTableViewController ()
 
-@property (nonatomic, strong) NSArray *places;
+@property (nonatomic, strong) NSDictionary *places;
 
 @end
  
@@ -28,9 +28,20 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 {
     return [self.places count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSString *countryKey = [self.places.allKeys objectAtIndex:section];
+    NSArray *countryPlaces = [self.places valueForKey:countryKey];
+    return [countryPlaces count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.places.allKeys objectAtIndex:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -38,12 +49,13 @@
     static NSString *CellIdentifier = @"PlacesTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    NSDictionary *place = [self.places objectAtIndex:indexPath.row];
+    NSString *countryKey = [self.places.allKeys objectAtIndex:indexPath.section];
+    NSArray *countryPlaces = [self.places valueForKey:countryKey];
+    NSDictionary *place = [countryPlaces objectAtIndex:indexPath.row];
     FlickrPlace *flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
-        
-    cell.textLabel.text = flickrPlace.city;
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", flickrPlace.region, flickrPlace.country];
+    cell.textLabel.text = flickrPlace.city;
+    cell.detailTextLabel.text = flickrPlace.region;
     return cell;
 }
 
@@ -51,21 +63,44 @@
     if ([segue.identifier isEqualToString:@"PlacesToPhotosSegue"]) {
         UITableViewCell *cell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        NSDictionary *place = [self.places objectAtIndex:indexPath.row];
+        NSString *countryKey = [self.places.allKeys objectAtIndex:indexPath.section];
+        NSArray *countryPlaces = [self.places valueForKey:countryKey];
+
+        NSDictionary *place = [countryPlaces objectAtIndex:indexPath.row];
         
         PhotosTableViewController *photosController = [segue destinationViewController];
         photosController.photos = [FlickrFetcher photosInPlace:place maxResults:50];
     }
 }
 
-- (NSArray *)places {
-    if (! _places)
-        _places = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* a, NSDictionary* b) {
-            NSString *first = [a valueForKey:@"_content"];
-            NSString *second = [b valueForKey:@"_content"];
-            return [first compare:second];
+- (NSDictionary *)places {
+    if (! _places) {
+        NSArray *flickrPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* a, NSDictionary* b) {
+            FlickrPlace *first = [[FlickrPlace alloc ] initWithPlace:a];
+            FlickrPlace *second = [[FlickrPlace alloc] initWithPlace:b];
+            if ([first.country isEqualToString:second.country])
+                return [first.city compare: second.city];
+            
+            return [first.country compare:second.country];
         }];
         
+        NSMutableDictionary *sectionsDictionary = [NSMutableDictionary dictionary];
+        NSString *lastCountry = nil;
+        NSMutableArray *countryPlaces;
+        
+        for (NSDictionary *place in flickrPlaces) {
+            FlickrPlace *flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
+            if (![flickrPlace.country isEqualToString:lastCountry]) {
+                lastCountry = flickrPlace.country;
+                countryPlaces = [NSMutableArray array];
+                [sectionsDictionary setObject:countryPlaces forKey:lastCountry];
+            }
+            
+            [countryPlaces addObject:place];
+        }
+        
+        _places = sectionsDictionary;
+    }
     return _places;
 }
 
