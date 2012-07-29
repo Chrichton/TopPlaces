@@ -13,7 +13,7 @@
 
 @interface PlacesTableViewController ()
 
-@property (nonatomic, strong) NSDictionary *places;
+@property (nonatomic, strong) NSArray *places;
 
 @end
  
@@ -35,13 +35,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString *countryKey = [self.places.allKeys objectAtIndex:section];
-    NSArray *countryPlaces = [self.places valueForKey:countryKey];
+    NSArray *countryPlaces = [self.places objectAtIndex:section];
     return [countryPlaces count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [self.places.allKeys objectAtIndex:section];
+    NSArray *countryPlaces = [self.places objectAtIndex:section];
+    NSDictionary *place = [countryPlaces objectAtIndex:0];
+    FlickrPlace * flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
+    return flickrPlace.country;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -49,8 +51,7 @@
     static NSString *CellIdentifier = @"PlacesTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    NSString *countryKey = [self.places.allKeys objectAtIndex:indexPath.section];
-    NSArray *countryPlaces = [self.places valueForKey:countryKey];
+    NSArray *countryPlaces = [self.places objectAtIndex:indexPath.section];
     NSDictionary *place = [countryPlaces objectAtIndex:indexPath.row];
     FlickrPlace *flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
     
@@ -63,8 +64,7 @@
     if ([segue.identifier isEqualToString:@"PlacesToPhotosSegue"]) {
         UITableViewCell *cell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        NSString *countryKey = [self.places.allKeys objectAtIndex:indexPath.section];
-        NSArray *countryPlaces = [self.places valueForKey:countryKey];
+        NSArray *countryPlaces = [self.places objectAtIndex:indexPath.section];
 
         NSDictionary *place = [countryPlaces objectAtIndex:indexPath.row];
         
@@ -73,7 +73,7 @@
     }
 }
 
-- (NSDictionary *)places {
+- (NSArray *)places {
     if (! _places) {
         NSArray *flickrPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* a, NSDictionary* b) {
             FlickrPlace *first = [[FlickrPlace alloc ] initWithPlace:a];
@@ -84,7 +84,7 @@
             return [first.country compare:second.country];
         }];
         
-        NSMutableDictionary *sectionsDictionary = [NSMutableDictionary dictionary];
+        NSMutableArray *sectionsArrary = [NSMutableArray array];
         NSString *lastCountry = nil;
         NSMutableArray *countryPlaces;
         
@@ -93,13 +93,13 @@
             if (![flickrPlace.country isEqualToString:lastCountry]) {
                 lastCountry = flickrPlace.country;
                 countryPlaces = [NSMutableArray array];
-                [sectionsDictionary setObject:countryPlaces forKey:lastCountry];
+                [sectionsArrary addObject:countryPlaces];
             }
             
             [countryPlaces addObject:place];
         }
         
-        _places = sectionsDictionary;
+        _places = sectionsArrary;
     }
     return _places;
 }
