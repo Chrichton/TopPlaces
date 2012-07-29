@@ -9,6 +9,7 @@
 #import "PlacesTableViewController.h"
 #import "FlickrFetcher.h"
 #import "PhotosTableViewController.h"
+#import "FlickrPlace.h"
 
 @interface PlacesTableViewController ()
 
@@ -38,12 +39,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     NSDictionary *place = [self.places objectAtIndex:indexPath.row];
-    NSString *content = [place valueForKey:@"_content"];
-    NSMutableArray *listItems = [[content componentsSeparatedByString:@", "] mutableCopy];
+    FlickrPlace *flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
+        
+    cell.textLabel.text = flickrPlace.city;
     
-    cell.textLabel.text = [listItems objectAtIndex:0];
-    
-    cell.detailTextLabel.text = [content substringFromIndex:[cell.textLabel.text length] + 2];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", flickrPlace.region, flickrPlace.country];
     return cell;
 }
 
