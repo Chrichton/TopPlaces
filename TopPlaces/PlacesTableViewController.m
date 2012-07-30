@@ -22,8 +22,12 @@
 @synthesize places = _places;
 
 - (void) reloadPlaces {
-    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [spinner startAnimating];
+    UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     
+    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
     dispatch_async(downloadQueue, ^{
         NSArray *flickrPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* a, NSDictionary* b) {
             FlickrPlace *first = [[FlickrPlace alloc ] initWithPlace:a];
@@ -49,7 +53,8 @@
             [countryPlaces addObject:place];
         }
         
-        dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            self.navigationItem.rightBarButtonItem = rightBarButtonItem;
             self.places = sectionsArrary;
         });
     });
@@ -125,4 +130,7 @@
     }
 }
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+}
 @end

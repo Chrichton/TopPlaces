@@ -214,7 +214,7 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
+                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="-1268" y="-885"/>
         </scene>
