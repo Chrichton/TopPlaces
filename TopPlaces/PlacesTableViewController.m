@@ -21,6 +21,51 @@
 
 @synthesize places = _places;
 
+- (void) reloadPlaces {
+    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+    
+    dispatch_async(downloadQueue, ^{
+        NSArray *flickrPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* a, NSDictionary* b) {
+            FlickrPlace *first = [[FlickrPlace alloc ] initWithPlace:a];
+            FlickrPlace *second = [[FlickrPlace alloc] initWithPlace:b];
+            if ([first.country isEqualToString:second.country])
+                return [first.city compare: second.city];
+            
+            return [first.country compare:second.country];
+        }];
+        
+        NSString *lastCountry = nil;
+        NSMutableArray *countryPlaces;
+        NSMutableArray *sectionsArrary = [NSMutableArray array];
+        
+        for (NSDictionary *place in flickrPlaces) {
+            FlickrPlace *flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
+            if (![flickrPlace.country isEqualToString:lastCountry]) {
+                lastCountry = flickrPlace.country;
+                countryPlaces = [NSMutableArray array];
+                [sectionsArrary addObject:countryPlaces];
+            }
+            
+            [countryPlaces addObject:place];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.places = sectionsArrary;
+        });
+    });
+    
+    dispatch_release(downloadQueue);
+}
+
+- (IBAction)refreshClicked:(id)sender {
+    [self reloadPlaces];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reloadPlaces];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
@@ -73,35 +118,11 @@
     }
 }
 
-- (NSArray *)places {
-    if (! _places) {
-        NSArray *flickrPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* a, NSDictionary* b) {
-            FlickrPlace *first = [[FlickrPlace alloc ] initWithPlace:a];
-            FlickrPlace *second = [[FlickrPlace alloc] initWithPlace:b];
-            if ([first.country isEqualToString:second.country])
-                return [first.city compare: second.city];
-            
-            return [first.country compare:second.country];
-        }];
-        
-        NSMutableArray *sectionsArrary = [NSMutableArray array];
-        NSString *lastCountry = nil;
-        NSMutableArray *countryPlaces;
-        
-        for (NSDictionary *place in flickrPlaces) {
-            FlickrPlace *flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
-            if (![flickrPlace.country isEqualToString:lastCountry]) {
-                lastCountry = flickrPlace.country;
-                countryPlaces = [NSMutableArray array];
-                [sectionsArrary addObject:countryPlaces];
-            }
-            
-            [countryPlaces addObject:place];
-        }
-        
-        _places = sectionsArrary;
+- (void) setPlaces:(NSArray *)places {
+    if (_places != places) {
+        _places = places;
+        [self.tableView reloadData];
     }
-    return _places;
 }
 
 @end

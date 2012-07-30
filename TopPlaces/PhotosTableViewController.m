@@ -68,8 +68,11 @@
 }
 
 - (void) setPhotos:(NSArray *)photos {
-    _photos = photos;
-    [self.tableView reloadData];
+    if (_photos != photos) {
+        _photos = photos;
+        [self.tableView reloadData];
+
+    }
 }
 
 @end
