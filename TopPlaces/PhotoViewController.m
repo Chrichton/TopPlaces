@@ -56,15 +56,23 @@
     dispatch_release(downloadQueue);
 }
 
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    self.splitViewController.delegate = self;
+}
+
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self reloadPhoto];
+    
+    if (!self.splitViewController) 
+        [self reloadPhoto];
 }
 
 - (void) setPhoto:(NSDictionary *)photo {
     _photo = photo;
     
-    if (self.isViewLoaded && self.view.window)
+if (self.splitViewController) 
         [self reloadPhoto];
 }
 
@@ -84,6 +92,19 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return self.photoImageView;
+}
+
+#pragma mark - Split view
+- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
+{
+    barButtonItem.title = NSLocalizedString(@"Places", @"Places");
+    self.navigationItem.leftBarButtonItem = barButtonItem;
+}
+
+- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    // Called when the view is shown again in the split view, invalidating the button and popover controller.
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 @end

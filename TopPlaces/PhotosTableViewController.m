@@ -60,7 +60,8 @@
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.splitViewController) {
-        PhotoViewController *photoController = self.splitViewController.viewControllers.lastObject;
+        UINavigationController *navigationController = self.splitViewController.viewControllers.lastObject;
+        PhotoViewController *photoController = (PhotoViewController *)[navigationController topViewController];
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
         photoController.photo = photo;
         [RecentPhotosTableViewController addPhoto:photo];
