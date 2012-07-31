@@ -7,6 +7,7 @@
 //
 
 #import "PhotoViewController.h"
+#import "FlickrFetcher.h"
 
 @interface PhotoViewController ()
 
@@ -15,28 +16,43 @@
 @end
 
 @implementation PhotoViewController
-@synthesize photoImageView = _photoImageView, photoTitle = _photoTitle;
+@synthesize photoImageView = _photoImageView;
 
 @synthesize photo = _photo;
 @synthesize scrollView = _scrollView;
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    self.title = self.photoTitle;
-    self.photoImageView.image = self.photo;
-    self.photoImageView.frame = CGRectMake(0, 0, self.photo.size.width, self.photo.size.height);
-
-    self.scrollView.zoomScale = 1;
-    self.scrollView.contentSize = self.photo.size;
-}
-
 - (void) viewWillAppear:(BOOL)animated {
-    CGFloat heightScale = self.scrollView.bounds.size.height / self.scrollView.contentSize.height;
-    CGFloat widthScale = self.scrollView.bounds.size.width / self.scrollView.contentSize.width;
+    [super viewWillAppear:animated];
     
-    self.scrollView.zoomScale = MIN(heightScale, widthScale);    
+    // self.title =
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [spinner startAnimating];
+    UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+    
+    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        NSURL *url = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+       
+        dispatch_async(dispatch_get_main_queue(), ^ {
+             
+            self.photoImageView.image = image;
+            self.photoImageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+            
+            self.scrollView.zoomScale = 1;
+            self.scrollView.contentSize = image.size;
+            
+            CGFloat heightScale = self.scrollView.bounds.size.height / self.scrollView.contentSize.height;
+            CGFloat widthScale = self.scrollView.bounds.size.width / self.scrollView.contentSize.width;
+            
+            self.scrollView.zoomScale = MIN(heightScale, widthScale);
+            
+            self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+        });
+    });
+
+    dispatch_release(downloadQueue);    
 }
 
 - (void)viewDidUnload

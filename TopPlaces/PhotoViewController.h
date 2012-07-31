@@ -10,8 +10,6 @@
 
 @interface PhotoViewController : UIViewController<UIScrollViewDelegate>
 
-@property (nonatomic, strong) UIImage *photo;
-@property (nonatomic, strong) NSString *photoTitle;
-
+@property (nonatomic, strong) NSDictionary *photo;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end

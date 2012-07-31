@@ -25,11 +25,11 @@
             </objects>
             <point key="canvasLocation" x="-2969" y="-276"/>
         </scene>
-        <!--Photos Table View Controller - Photos-->
+        <!--Top Photos Table View Controller - Photos-->
         <scene sceneID="I9X-vz-QJS">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekS-nb-8Jo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="ZJb-7O-eIr" customClass="PhotosTableViewController" sceneMemberID="viewController">
+                <tableViewController id="ZJb-7O-eIr" customClass="TopPhotosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4Ng-PM-9zS">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,7 +69,13 @@
                             <outlet property="delegate" destination="ZJb-7O-eIr" id="jKf-bj-kNn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Photos" id="VVK-F9-k6e"/>
+                    <navigationItem key="navigationItem" title="Photos" id="VVK-F9-k6e">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="mIA-8T-KzW">
+                            <connections>
+                                <action selector="refreshClicked:" destination="ZJb-7O-eIr" id="9ua-7q-ycJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -214,7 +220,7 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                 </tableViewController>
+                </tableViewController>
             </objects>
             <point key="canvasLocation" x="-1268" y="-885"/>
         </scene>
@@ -258,6 +264,27 @@
             <point key="canvasLocation" x="-1879" y="414"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="PhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="PhotosTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosTableViewController.h"/>
+        </class>
+        <class className="PlacesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
+        </class>
+        <class className="RecentPhotosTableViewController" superclassName="PhotosTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -59,10 +59,7 @@
         UITableViewCell * cell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-        photoController.photo = image;
-        photoController.photoTitle = cell.textLabel.text;
+        photoController.photo = photo;
         [RecentPhotosTableViewController addPhoto:photo];
     }
 }

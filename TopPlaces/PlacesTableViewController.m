@@ -8,7 +8,7 @@
 
 #import "PlacesTableViewController.h"
 #import "FlickrFetcher.h"
-#import "PhotosTableViewController.h"
+#import "TopPhotosTableViewController.h"
 #import "FlickrPlace.h"
 
 @interface PlacesTableViewController ()
@@ -118,9 +118,9 @@
 
         NSDictionary *place = [countryPlaces objectAtIndex:indexPath.row];
         
-        PhotosTableViewController *photosController = [segue destinationViewController];
-        photosController.photos = [FlickrFetcher photosInPlace:place maxResults:50];
-    }
+        TopPhotosTableViewController *photosController = [segue destinationViewController];
+        photosController.place = place;
+     }
 }
 
 - (void) setPlaces:(NSArray *)places {
