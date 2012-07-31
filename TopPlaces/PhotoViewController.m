@@ -22,12 +22,10 @@
 @synthesize photo = _photo;
 @synthesize scrollView = _scrollView;
 
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
+- (void) reloadPhoto {
     FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:self.photo];
     self.title = flickrPhoto.title;
-
+    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [spinner startAnimating];
     UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
@@ -37,9 +35,9 @@
     dispatch_async(downloadQueue, ^{
         NSURL *url = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-       
+        
         dispatch_async(dispatch_get_main_queue(), ^ {
-             
+            
             self.photoImageView.image = image;
             self.photoImageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
             
@@ -54,8 +52,20 @@
             self.navigationItem.rightBarButtonItem = rightBarButtonItem;
         });
     });
+    
+    dispatch_release(downloadQueue);
+}
 
-    dispatch_release(downloadQueue);    
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reloadPhoto];
+}
+
+- (void) setPhoto:(NSDictionary *)photo {
+    _photo = photo;
+    
+    if (self.isViewLoaded && self.view.window)
+        [self reloadPhoto];
 }
 
 - (void)viewDidUnload
