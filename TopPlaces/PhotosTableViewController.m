@@ -10,6 +10,7 @@
 #import "PhotoViewController.h"
 #import "FlickrFetcher.h"
 #import "RecentPhotosTableViewController.h"
+#import "FlickrPhoto.h"
 
 @interface PhotosTableViewController ()
 
@@ -37,18 +38,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [photo valueForKeyPath:@"description._content"];
+    FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:photo];
     
-    NSString *title = [photo valueForKey:@"title"];
-    if (title.length == 0) {
-        if (cell.detailTextLabel.text.length > 0)
-            title = cell.detailTextLabel.text;
-        else
-            title = NSLocalizedString(@"unknown", @"unknown");
-    }
-    
-    cell.textLabel.text = title;
-    
+    cell.textLabel.text = flickrPhoto.title;
+    cell.detailTextLabel.text = flickrPhoto.description;;
+
     return cell;
 }
 

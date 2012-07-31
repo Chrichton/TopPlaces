@@ -8,6 +8,7 @@
 
 #import "PhotoViewController.h"
 #import "FlickrFetcher.h"
+#import "FlickrPhoto.h"
 
 @interface PhotoViewController ()
 
@@ -24,7 +25,9 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // self.title =
+    FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:self.photo];
+    self.title = flickrPhoto.title;
+
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [spinner startAnimating];
     UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
