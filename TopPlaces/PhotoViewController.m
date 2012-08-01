@@ -73,7 +73,7 @@
     _photo = photo;
     
 if (self.splitViewController) 
-        [self reloadPhoto];
+    [self reloadPhoto];
 }
 
 - (void)viewDidUnload
