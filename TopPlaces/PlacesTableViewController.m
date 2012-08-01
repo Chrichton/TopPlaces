@@ -10,6 +10,7 @@
 #import "FlickrFetcher.h"
 #import "TopPhotosTableViewController.h"
 #import "FlickrPlace.h"
+#import "PlacesMapViewController.h"
 
 @interface PlacesTableViewController ()
 
@@ -120,6 +121,9 @@
         
         TopPhotosTableViewController *photosController = [segue destinationViewController];
         photosController.place = place;
+     } else if ([segue.identifier isEqualToString:@"PlacesToMapSegue"]) {
+         PlacesMapViewController *mapViewContoller = segue.destinationViewController;
+         mapViewContoller.places = self.places;
      }
 }
 

@@ -8,15 +8,16 @@
 
 #import "PlacesMapViewController.h"
 #import <Mapkit/MapKit.h>
+#import "PlaceAnnotation.h"
 
-@interface PlacesMapViewController ()
+@interface PlacesMapViewController ()<MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
 @implementation PlacesMapViewController
-@synthesize mapView;
+@synthesize mapView = _mapView, places = _places;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +31,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	self.mapView.delegate = self;
+    
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    for (NSArray *countryPlaces in self.places)
+        for (NSDictionary *place in countryPlaces)
+            [self.mapView addAnnotation:[PlaceAnnotation CreateWithPlace:place]];
 }
 
 - (void)viewDidUnload
@@ -42,7 +48,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 @end

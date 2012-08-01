@@ -36,6 +36,7 @@
 		FF5C92BE15C9B5EF0090AB4F /* PlacesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5C92BD15C9B5EF0090AB4F /* PlacesMapViewController.m */; };
 		FF5C92C015C9B72E0090AB4F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5C92BF15C9B72E0090AB4F /* MapKit.framework */; };
 		FF5C92C215C9B73B0090AB4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5C92C115C9B73B0090AB4F /* CoreLocation.framework */; };
+		FF5C92C515C9B9DD0090AB4F /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5C92C415C9B9DD0090AB4F /* PlaceAnnotation.m */; };
 		FF6975DB15C3D9B600E3D45E /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */; };
 		FFC8B58815C53B900049228F /* FlickrPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC8B58715C53B900049228F /* FlickrPlace.m */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,8 @@
 		FF5C92BD15C9B5EF0090AB4F /* PlacesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesMapViewController.m; sourceTree = "<group>"; };
 		FF5C92BF15C9B72E0090AB4F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FF5C92C115C9B73B0090AB4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FF5C92C315C9B9DD0090AB4F /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
+		FF5C92C415C9B9DD0090AB4F /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
 		FF6975D915C3D9B600E3D45E /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		FFC8B58615C53B900049228F /* FlickrPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPlace.h; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 			children = (
 				FF5C92BC15C9B5EF0090AB4F /* PlacesMapViewController.h */,
 				FF5C92BD15C9B5EF0090AB4F /* PlacesMapViewController.m */,
+				FF5C92C315C9B9DD0090AB4F /* PlaceAnnotation.h */,
+				FF5C92C415C9B9DD0090AB4F /* PlaceAnnotation.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 				FF51D7E815C74BD900F1E301 /* TopPhotosTableViewController.m in Sources */,
 				FF51D80415C75E5000F1E301 /* FlickrPhoto.m in Sources */,
 				FF5C92BE15C9B5EF0090AB4F /* PlacesMapViewController.m in Sources */,
+				FF5C92C515C9B9DD0090AB4F /* PlaceAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
