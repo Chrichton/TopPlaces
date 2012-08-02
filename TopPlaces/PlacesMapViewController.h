@@ -10,6 +10,6 @@
 
 @interface PlacesMapViewController : UIViewController
 
-@property (nonatomic, strong) NSArray *places;
+@property (nonatomic, strong) NSArray *annotations;
 
 @end

@@ -8,7 +8,6 @@
 
 #import "PlacesMapViewController.h"
 #import <Mapkit/MapKit.h>
-#import "PlaceAnnotation.h"
 
 @interface PlacesMapViewController ()<MKMapViewDelegate>
 
@@ -17,7 +16,7 @@
 @end
 
 @implementation PlacesMapViewController
-@synthesize mapView = _mapView, places = _places;
+@synthesize mapView = _mapView, annotations = _annotations;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,9 +33,7 @@
 	self.mapView.delegate = self;
     
     [self.mapView removeAnnotations:self.mapView.annotations];
-    for (NSArray *countryPlaces in self.places)
-        for (NSDictionary *place in countryPlaces)
-            [self.mapView addAnnotation:[PlaceAnnotation CreateWithPlace:place]];
+    [self.mapView addAnnotations:self.annotations];
 }
 
 - (void)viewDidUnload
