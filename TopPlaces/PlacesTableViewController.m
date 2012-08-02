@@ -10,7 +10,7 @@
 #import "FlickrFetcher.h"
 #import "TopPhotosTableViewController.h"
 #import "FlickrPlace.h"
-#import "PlacesMapViewController.h"
+#import "MapViewController.h"
 #import "PlaceAnnotation.h"
 
 @interface PlacesTableViewController ()
@@ -123,7 +123,7 @@
         TopPhotosTableViewController *photosController = [segue destinationViewController];
         photosController.place = place;
      } else if ([segue.identifier isEqualToString:@"PlacesToMapSegue"]) {
-         PlacesMapViewController *mapViewContoller = segue.destinationViewController;
+         MapViewController *mapViewContoller = segue.destinationViewController;
          NSMutableArray *annotations = [NSMutableArray array];
          for (NSArray *countryPlaces in self.places)
              for (NSDictionary *place in countryPlaces)

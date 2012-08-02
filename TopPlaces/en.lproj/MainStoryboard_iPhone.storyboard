@@ -25,11 +25,11 @@
             </objects>
             <point key="canvasLocation" x="-2969" y="-276"/>
         </scene>
-        <!--Places Map View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="iLh-AF-X4v">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vW-Bp-YiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="iwR-VU-qmm" customClass="PlacesMapViewController" sceneMemberID="viewController">
+                <viewController id="iwR-VU-qmm" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ozY-7W-VEy">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

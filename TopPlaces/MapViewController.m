@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 Heiko Goes. All rights reserved.
 //
 
-#import "PlacesMapViewController.h"
+#import "MapViewController.h"
 #import <Mapkit/MapKit.h>
 
-@interface PlacesMapViewController ()<MKMapViewDelegate>
+@interface MapViewController ()<MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
-@implementation PlacesMapViewController
+@implementation MapViewController
 @synthesize mapView = _mapView, annotations = _annotations;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
