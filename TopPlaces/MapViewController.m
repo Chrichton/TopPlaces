@@ -7,6 +7,8 @@
 //
 
 #import "MapViewController.h"
+#import "TopPhotosTableViewController.h"
+#import "PlaceAnnotation.h"
 
 @interface MapViewController ()<MKMapViewDelegate>
 
@@ -65,12 +67,14 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
-    
-    [self performSegueWithIdentifier:@"MapPlacesToPhotosSegue" sender:self];
+    [self performSegueWithIdentifier:@"MapPlacesToPhotosSegue" sender:view];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    if ([segue.identifier isEqualToString:@"MapPlacesToPhotosSegue"]) {
+        TopPhotosTableViewController *photosController = segue.destinationViewController;
+        MKAnnotationView *view = sender;
+        photosController.place = ((PlaceAnnotation *)view.annotation).place;
+    }
 }
 @end
