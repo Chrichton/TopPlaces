@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Mapkit/MapKit.h>
 
-@interface MapViewController : UIViewController
+@interface PlacesMapViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *annotations;
 

@@ -6,28 +6,19 @@
 //  Copyright (c) 2012 Heiko Goes. All rights reserved.
 //
 
-#import "MapViewController.h"
+#import "PlacesMapViewController.h"
 #import "TopPhotosTableViewController.h"
 #import "PlaceAnnotation.h"
 
-@interface MapViewController ()<MKMapViewDelegate>
+@interface PlacesMapViewController ()<MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
-@implementation MapViewController
+@implementation PlacesMapViewController
 
 @synthesize mapView = _mapView, annotations = _annotations;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -65,8 +56,7 @@
     return aView;
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     [self performSegueWithIdentifier:@"MapPlacesToPhotosSegue" sender:view];
 }
 

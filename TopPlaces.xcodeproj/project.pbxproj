@@ -33,7 +33,7 @@
 		FF4B5AC515C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */; };
 		FF51D7E815C74BD900F1E301 /* TopPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF51D7E715C74BD900F1E301 /* TopPhotosTableViewController.m */; };
 		FF51D80415C75E5000F1E301 /* FlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FF51D80315C75E5000F1E301 /* FlickrPhoto.m */; };
-		FF5C92BE15C9B5EF0090AB4F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5C92BD15C9B5EF0090AB4F /* MapViewController.m */; };
+		FF5C92BE15C9B5EF0090AB4F /* PlacesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5C92BD15C9B5EF0090AB4F /* PlacesMapViewController.m */; };
 		FF5C92C015C9B72E0090AB4F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5C92BF15C9B72E0090AB4F /* MapKit.framework */; };
 		FF5C92C215C9B73B0090AB4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5C92C115C9B73B0090AB4F /* CoreLocation.framework */; };
 		FF5C92C515C9B9DD0090AB4F /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5C92C415C9B9DD0090AB4F /* PlaceAnnotation.m */; };
@@ -87,8 +87,8 @@
 		FF51D7E715C74BD900F1E301 /* TopPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPhotosTableViewController.m; sourceTree = "<group>"; };
 		FF51D80215C75E5000F1E301 /* FlickrPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhoto.h; sourceTree = "<group>"; };
 		FF51D80315C75E5000F1E301 /* FlickrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhoto.m; sourceTree = "<group>"; };
-		FF5C92BC15C9B5EF0090AB4F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		FF5C92BD15C9B5EF0090AB4F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		FF5C92BC15C9B5EF0090AB4F /* PlacesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesMapViewController.h; sourceTree = "<group>"; };
+		FF5C92BD15C9B5EF0090AB4F /* PlacesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesMapViewController.m; sourceTree = "<group>"; };
 		FF5C92BF15C9B72E0090AB4F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FF5C92C115C9B73B0090AB4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FF5C92C315C9B9DD0090AB4F /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
@@ -232,8 +232,8 @@
 		FF5C92BA15C9B5CA0090AB4F /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				FF5C92BC15C9B5EF0090AB4F /* MapViewController.h */,
-				FF5C92BD15C9B5EF0090AB4F /* MapViewController.m */,
+				FF5C92BC15C9B5EF0090AB4F /* PlacesMapViewController.h */,
+				FF5C92BD15C9B5EF0090AB4F /* PlacesMapViewController.m */,
 				FF5C92C315C9B9DD0090AB4F /* PlaceAnnotation.h */,
 				FF5C92C415C9B9DD0090AB4F /* PlaceAnnotation.m */,
 			);
@@ -362,7 +362,7 @@
 				FFC8B58815C53B900049228F /* FlickrPlace.m in Sources */,
 				FF51D7E815C74BD900F1E301 /* TopPhotosTableViewController.m in Sources */,
 				FF51D80415C75E5000F1E301 /* FlickrPhoto.m in Sources */,
-				FF5C92BE15C9B5EF0090AB4F /* MapViewController.m in Sources */,
+				FF5C92BE15C9B5EF0090AB4F /* PlacesMapViewController.m in Sources */,
 				FF5C92C515C9B9DD0090AB4F /* PlaceAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
