@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Mapkit/MapKit.h>
 
 @interface MapViewController : UIViewController
 

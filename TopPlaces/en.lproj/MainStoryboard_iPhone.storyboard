@@ -43,6 +43,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="5kV-Eb-BGX" id="LVl-xU-Plg"/>
+                        <segue destination="ZJb-7O-eIr" kind="push" identifier="MapPlacesToPhotosSegue" id="BWR-SX-Vyl"/>
                     </connections>
                 </viewController>
             </objects>
@@ -298,6 +299,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="BWR-SX-Vyl"/>
         <segue reference="ztX-He-32k"/>
     </inferredMetricsTieBreakers>
 </document>

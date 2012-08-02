@@ -7,7 +7,6 @@
 //
 
 #import "MapViewController.h"
-#import <Mapkit/MapKit.h>
 
 @interface MapViewController ()<MKMapViewDelegate>
 
@@ -16,6 +15,7 @@
 @end
 
 @implementation MapViewController
+
 @synthesize mapView = _mapView, annotations = _annotations;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,10 +55,22 @@
     if (!aView) {
         aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MapVC"];
         aView.canShowCallout = YES;
+        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        aView.rightCalloutAccessoryView = rightButton;
     }
     
     aView.annotation = annotation;
     return aView;
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
+    
+    [self performSegueWithIdentifier:@"MapPlacesToPhotosSegue" sender:self];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+}
 @end
