@@ -48,4 +48,17 @@
     return YES;
 }
 
+#pragma AnnotationView
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView *aView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"MapVC"];
+    if (!aView) {
+        aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MapVC"];
+        aView.canShowCallout = YES;
+    }
+    
+    aView.annotation = annotation;
+    return aView;
+}
+
 @end

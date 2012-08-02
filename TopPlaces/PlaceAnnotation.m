@@ -8,9 +8,17 @@
 
 #import "PlaceAnnotation.h"
 #import "FlickrFetcher.h"
+#import "FlickrPlace.h"
+
+@interface PlaceAnnotation()
+
+@property (nonatomic, readonly) NSString* theTitle;
+@property (nonatomic, readonly) NSString* theDescription;
+
+@end
 
 @implementation PlaceAnnotation
-@synthesize place = _place;
+@synthesize place = _place, theTitle = _theTitle, theDescription = _theDescription;
 
 + CreateWithPlace: (NSDictionary *) place {
     PlaceAnnotation *placeAnnotation = [[PlaceAnnotation alloc] init];
@@ -23,7 +31,12 @@
 
 - (NSString *)title
 {
-    return [self.place objectForKey:FLICKR_PLACE_NAME];
+    return self.theTitle;
+}
+
+- (NSString *)subtitle
+{
+    return self.theDescription;
 }
 
 - (CLLocationCoordinate2D)coordinate
@@ -32,6 +45,14 @@
     coordinate.latitude = [[self.place objectForKey:FLICKR_LATITUDE] doubleValue];
     coordinate.longitude = [[self.place objectForKey:FLICKR_LONGITUDE] doubleValue];
     return coordinate;
+}
+
+- (void)setPlace:(NSDictionary *)place {
+    FlickrPlace *flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
+    _theTitle = flickrPlace.city;
+    _theDescription = [NSString stringWithFormat: @"%@, %@", flickrPlace.country, flickrPlace.region];
+
+    _place = place;
 }
 
 @end
