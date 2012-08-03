@@ -9,18 +9,18 @@
 #import "PhotoViewController.h"
 #import "FlickrFetcher.h"
 #import "FlickrPhoto.h"
+#import "FileCache.h"
 
 @interface PhotoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (nonatomic, readonly) FileCache *fileCache;
 
 @end
 
 @implementation PhotoViewController
-@synthesize photoImageView = _photoImageView;
 
-@synthesize photo = _photo;
-@synthesize scrollView = _scrollView;
+@synthesize photoImageView = _photoImageView, photo = _photo, scrollView = _scrollView, fileCache = _fileCache;
 
 - (void) reloadPhoto {
     FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:self.photo];
@@ -33,9 +33,15 @@
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
     dispatch_async(downloadQueue, ^{
-        NSURL *url = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge];
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        NSString *photoId = [self.photo objectForKey:FLICKR_PHOTO_ID];
+        NSData *data = [self.fileCache dataForFilename:photoId];
+        if (!data) {
+            NSURL *url = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge];
+            data = [NSData dataWithContentsOfURL:url];
+            [self.fileCache addData:data withFilename:photoId];
+        }
         
+        UIImage *image = [UIImage imageWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^ {
             
             self.photoImageView.image = image;
@@ -58,7 +64,8 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
+
+    _fileCache = [[FileCache alloc] initWithName:@"FlickrPhotos" andMaxSize:1000000];
     self.splitViewController.delegate = self;
 }
 

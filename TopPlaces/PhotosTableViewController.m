@@ -26,6 +26,8 @@
 @synthesize photos = _photos;
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     _fileCache = [[FileCache alloc] initWithName:@"FlickrThumbnails" andMaxSize:1000000];
 }
 
