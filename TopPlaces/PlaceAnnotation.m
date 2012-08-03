@@ -13,12 +13,12 @@
 @interface PlaceAnnotation()
 
 @property (nonatomic, readonly) NSString* theTitle;
-@property (nonatomic, readonly) NSString* theDescription;
+@property (nonatomic, readonly) NSString* theSubtitel;
 
 @end
 
 @implementation PlaceAnnotation
-@synthesize place = _place, theTitle = _theTitle, theDescription = _theDescription;
+@synthesize place = _place, theTitle = _theTitle, theSubtitel = _theSubtitle;
 
 + CreateWithPlace: (NSDictionary *) place {
     PlaceAnnotation *placeAnnotation = [[PlaceAnnotation alloc] init];
@@ -36,7 +36,7 @@
 
 - (NSString *)subtitle
 {
-    return self.theDescription;
+    return self.theSubtitel;
 }
 
 - (CLLocationCoordinate2D)coordinate
@@ -50,7 +50,7 @@
 - (void)setPlace:(NSDictionary *)place {
     FlickrPlace *flickrPlace = [[FlickrPlace alloc] initWithPlace:place];
     _theTitle = flickrPlace.city;
-    _theDescription = [NSString stringWithFormat: @"%@, %@", flickrPlace.country, flickrPlace.region];
+    _theSubtitle = [NSString stringWithFormat: @"%@, %@", flickrPlace.country, flickrPlace.region];
 
     _place = place;
 }

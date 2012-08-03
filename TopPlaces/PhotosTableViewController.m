@@ -11,6 +11,8 @@
 #import "FlickrFetcher.h"
 #import "RecentPhotosTableViewController.h"
 #import "FlickrPhoto.h"
+#import "PhotosMapViewController.h"
+#import "PhotoAnnotation.h"
 
 @interface PhotosTableViewController ()
 
@@ -55,6 +57,13 @@
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
         photoController.photo = photo;
         [RecentPhotosTableViewController addPhoto:photo];
+    } else if ([segue.identifier isEqualToString:@"PhotosToMapSegue"]) {
+        PhotosMapViewController *mapViewContoller = segue.destinationViewController;
+        NSMutableArray *annotations = [NSMutableArray array];
+        for (NSDictionary *photo in self.photos)
+            [annotations addObject:[PhotoAnnotation CreateWithPhoto:photo]];
+        
+        mapViewContoller.annotations = annotations;
     }
 }
 

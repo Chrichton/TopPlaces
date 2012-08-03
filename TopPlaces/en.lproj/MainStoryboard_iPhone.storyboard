@@ -47,7 +47,32 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-1276" y="-264"/>
+            <point key="canvasLocation" x="-1268" y="-1580"/>
+        </scene>
+        <!--Photos Map View Controller-->
+        <scene sceneID="opa-DP-OAO">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NfQ-kT-55Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="y1E-3m-1yH" customClass="PhotosMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qkr-mX-q3b">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="RIz-rJ-VNu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uki-N0-HXI"/>
+                    <connections>
+                        <outlet property="mapView" destination="RIz-rJ-VNu" id="eZ1-z3-cxm"/>
+                        <segue destination="Bsg-FT-AKt" kind="push" identifier="MapPhotosToPhotoSegue" id="3Eg-Sw-t3y"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-62" y="-1535"/>
         </scene>
         <!--Top Photos Table View Controller - Photos-->
         <scene sceneID="I9X-vz-QJS">
@@ -96,7 +121,7 @@
                     <navigationItem key="navigationItem" title="Photos" id="VVK-F9-k6e">
                         <barButtonItem key="rightBarButtonItem" title="Refresh" id="mIA-8T-KzW">
                             <connections>
-                                <action selector="refreshClicked:" destination="ZJb-7O-eIr" id="9ua-7q-ycJ"/>
+                                <segue destination="y1E-3m-1yH" kind="push" identifier="PhotosToMapSegue" id="DIC-R1-JQY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -293,6 +318,45 @@
             <point key="canvasLocation" x="-1879" y="414"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="PhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="PhotosMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="PhotosTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosTableViewController.h"/>
+        </class>
+        <class className="PlacesMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="PlacesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
+        </class>
+        <class className="RecentPhotosTableViewController" superclassName="PhotosTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosTableViewController.h"/>
+        </class>
+        <class className="TopPhotosTableViewController" superclassName="PhotosTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPhotosTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -300,6 +364,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="BWR-SX-Vyl"/>
-        <segue reference="ztX-He-32k"/>
+        <segue reference="3Eg-Sw-t3y"/>
     </inferredMetricsTieBreakers>
 </document>
