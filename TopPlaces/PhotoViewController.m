@@ -15,16 +15,20 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, readonly) FileCache *fileCache;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *photoDescription;
 
 @end
 
 @implementation PhotoViewController
+@synthesize toolbar = _toolbar;
+@synthesize photoDescription = _photoDescription;
 
 @synthesize photoImageView = _photoImageView, photo = _photo, scrollView = _scrollView, fileCache = _fileCache;
 
 - (void) reloadPhoto {
     FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:self.photo];
-    self.title = flickrPhoto.title;
+    self.photoDescription.title = flickrPhoto.title;
     
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [spinner startAnimating];
@@ -87,6 +91,8 @@ if (self.splitViewController)
 {
     [self setPhotoImageView:nil];
     [self setScrollView:nil];
+    [self setToolbar:nil];
+    [self setPhotoDescription:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -105,13 +111,17 @@ if (self.splitViewController)
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
     barButtonItem.title = NSLocalizedString(@"Places", @"Places");
-    self.navigationItem.leftBarButtonItem = barButtonItem;
+    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+    [toolbarItems insertObject:barButtonItem atIndex:0];
+    self.toolbar.items = toolbarItems;
 }
 
 - (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    self.navigationItem.leftBarButtonItem = nil;
+    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+    [toolbarItems removeObject:barButtonItem];
+    self.toolbar.items = toolbarItems;
 }
 
 @end

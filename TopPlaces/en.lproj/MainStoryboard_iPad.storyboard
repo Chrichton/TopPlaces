@@ -133,17 +133,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2D-GF-hOF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="8j9-He-Hc6" customClass="PhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hsJ-Vv-9bi">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.10000000149011612" maximumZoomScale="10" id="nwd-pb-vny">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="TopLeft" id="wua-Or-Mm3">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="6C9-pt-zVX">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="3nC-hk-vX4"/>
+                                            <barButtonItem style="plain" id="HqI-bY-jsM"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="dGb-8u-md1"/>
+                                        </items>
+                                    </toolbar>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="8j9-He-Hc6" id="h28-g8-QeP"/>
@@ -155,12 +164,14 @@
                     <navigationItem key="navigationItem" id="bnq-uA-WnZ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
+                        <outlet property="photoDescription" destination="HqI-bY-jsM" id="CmW-Xk-0HA"/>
                         <outlet property="photoImageView" destination="wua-Or-Mm3" id="9e2-m4-tnN"/>
                         <outlet property="scrollView" destination="nwd-pb-vny" id="EL3-RP-UZC"/>
+                        <outlet property="toolbar" destination="6C9-pt-zVX" id="MTQ-wt-9TW"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-872" y="1738"/>
+            <point key="canvasLocation" x="-2134" y="1658"/>
         </scene>
         <!--Places Table View Controller - Places-->
         <scene sceneID="RAT-L8-A4r">
@@ -267,31 +278,42 @@
                     <toolbarItems/>
                     <connections>
                         <segue destination="P3q-cb-3ZP" kind="relationship" relationship="masterViewController" id="QhS-lL-3qW"/>
-                        <segue destination="kkh-f8-Hk5" kind="relationship" relationship="detailViewController" id="RlY-ng-Da7"/>
+                        <segue destination="8j9-He-Hc6" kind="relationship" relationship="detailViewController" id="0WR-kE-vak"/>
                     </connections>
                 </splitViewController>
             </objects>
-            <point key="canvasLocation" x="-3968" y="1177"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qrG-MK-aF3">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T64-WJ-HHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="kkh-f8-Hk5" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Np7-Ee-Mhz">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8j9-He-Hc6" kind="relationship" relationship="rootViewController" id="iPD-8J-iLZ"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-1846" y="1738"/>
+            <point key="canvasLocation" x="-3852" y="1173"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="PhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="photoDescription" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="PhotosTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosTableViewController.h"/>
+        </class>
+        <class className="PlacesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
+        </class>
+        <class className="RecentPhotosTableViewController" superclassName="PhotosTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosTableViewController.h"/>
+        </class>
+        <class className="TopPhotosTableViewController" superclassName="PhotosTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPhotosTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
