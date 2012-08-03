@@ -19,18 +19,18 @@
 
 - (void)tearDown
 {
-    // Tear-down code here.
+    // Tear-down code here
     NSURL *cacheUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
     NSError *error;
     [[NSFileManager defaultManager] removeItemAtURL:[cacheUrl URLByAppendingPathComponent:@"test"] error:&error];
     [[NSFileManager defaultManager] removeItemAtURL:[cacheUrl URLByAppendingPathComponent:@"test2"] error:&error];
-
+    
     [super tearDown];
 }
 
 - (void)testSingleFile
 {
-    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 1];
+    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 10];
     STAssertNil([filecache dataForFilename:@"image1"], @"");
 
     [filecache addData:[@"1" dataUsingEncoding:NSUnicodeStringEncoding] withFilename:@"data1"];
@@ -43,16 +43,16 @@
 }
 
 - (void) testDifferentCacheInstances {
-    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 1];
+    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 10];
     [filecache addData:[@"1" dataUsingEncoding:NSUnicodeStringEncoding] withFilename:@"data1"];
     STAssertNotNil([filecache dataForFilename:@"data1"], @"");
 
-    FileCache *filecache2 = [[FileCache alloc] initWithName:@"test" andMaxSize: 1];
+    FileCache *filecache2 = [[FileCache alloc] initWithName:@"test" andMaxSize: 10];
     STAssertNotNil([filecache2 dataForFilename:@"data1"], @"");
 }
 
 - (void) testDifferentCacheNames {
-    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 1];
+    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 10];
     [filecache addData:[@"1" dataUsingEncoding:NSUnicodeStringEncoding] withFilename:@"data1"];
     STAssertNotNil([filecache dataForFilename:@"data1"], @"");
     
@@ -60,13 +60,28 @@
     STAssertNil([filecache2 dataForFilename:@"data1"], @"");
 }
 
-- (void) testCacheFull {
-    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 1];
+- (void) testUpdateFile {
+    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 10];
     [filecache addData:[@"1" dataUsingEncoding:NSUnicodeStringEncoding] withFilename:@"data1"];
+    [filecache addData:[@"2" dataUsingEncoding:NSUnicodeStringEncoding] withFilename:@"data1"];
+    
+    NSData *readData = [filecache dataForFilename:@"data1"];
+    STAssertNotNil(readData, @"");
+    NSString *readString = [[NSString alloc] initWithData:readData encoding:NSUnicodeStringEncoding];
+    STAssertEqualObjects(@"2", readString, @"");
+}
+
+- (void) testCacheFull {
+    FileCache *filecache = [[FileCache alloc] initWithName:@"test" andMaxSize: 6]; // @"1" = 4 Byte
+    [filecache addData:[@"1" dataUsingEncoding:NSUnicodeStringEncoding] withFilename:@"data1"];
+    sleep(1);
     [filecache addData:[@"2" dataUsingEncoding:NSUnicodeStringEncoding] withFilename:@"data2"];
+    sleep(1);
+    [filecache addData:[@"3" dataUsingEncoding:NSUnicodeStringEncoding] withFilename:@"data3"];
 
     STAssertNil([filecache dataForFilename:@"data1"], @"");
     STAssertNotNil([filecache dataForFilename:@"data2"], @"");
+    STAssertNotNil([filecache dataForFilename:@"data3"], @"");
 }
 
 @end

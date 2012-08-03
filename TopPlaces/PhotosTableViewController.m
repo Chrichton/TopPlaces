@@ -13,14 +13,21 @@
 #import "FlickrPhoto.h"
 #import "PhotoAnnotation.h"
 #import <MapKit/MapKit.h>
+#import "FileCache.h"
 
 @interface PhotosTableViewController ()
+
+@property (nonatomic, readonly) FileCache *fileCache;
 
 @end
 
 @implementation PhotosTableViewController
 
 @synthesize photos = _photos;
+
+- (void)viewDidLoad {
+    _fileCache = [[FileCache alloc] initWithName:@"FlickrThumbnails" andMaxSize:1000000];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -87,8 +94,15 @@
 
 #pragma PhotosMapViewControllerDelegate
 - (UIImage *)mapViewController:(PhotosMapViewController *)sender imageForAnnotation:(id<MKAnnotation>)annotation {
-    NSURL *url = [FlickrFetcher urlForPhoto:((PhotoAnnotation *)annotation).photo format:FlickrPhotoFormatSquare];
-    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSDictionary *photo = ((PhotoAnnotation *)annotation).photo;
+    NSString *photoId = [photo valueForKey:FLICKR_PHOTO_ID];
+    NSData * data = [self.fileCache dataForFilename:photoId];
+    if (!data) {
+        NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatSquare];
+        data = [NSData dataWithContentsOfURL:url];
+        [self.fileCache addData:data withFilename:photoId];
+    }
+        
     return [UIImage imageWithData:data];
 }
 

@@ -64,7 +64,8 @@
         NSDictionary *fileDictionary = [self.fileManager
                                         attributesOfItemAtPath:[[self.cacheDirectoryUrl path] stringByAppendingPathComponent:filename] error:nil];
         NSDate *fileDate = [fileDictionary objectForKey:NSFileModificationDate];
-        if (!oldestFileDate || fileDate < oldestFileDate)
+        
+        if (!oldestFileDate || [fileDate compare: oldestFileDate] == NSOrderedAscending)
         {
             oldestFileDate = fileDate;
             oldestFilename = filename;
