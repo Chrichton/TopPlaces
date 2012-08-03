@@ -106,8 +106,17 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView
 {
-    UIImage *image = [self.delegate mapViewController:self imageForAnnotation:aView.annotation];
-    [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
+    dispatch_queue_t queue = dispatch_queue_create("download_queue", NULL);
+    dispatch_async(queue, ^{
+        UIImage *image = [self.delegate mapViewController:self imageForAnnotation:aView.annotation];
+        if ([self.annotations containsObject:aView.annotation]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
+            });
+        };
+    });
+    
+    dispatch_release(queue);
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
