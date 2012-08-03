@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotosMapViewController.h"
 
-@interface PhotosTableViewController : UITableViewController
+@interface PhotosTableViewController : UITableViewController<PhotosMapViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *photos;
 

@@ -11,8 +11,8 @@
 #import "FlickrFetcher.h"
 #import "RecentPhotosTableViewController.h"
 #import "FlickrPhoto.h"
-#import "PhotosMapViewController.h"
 #import "PhotoAnnotation.h"
+#import <MapKit/MapKit.h>
 
 @interface PhotosTableViewController ()
 
@@ -64,6 +64,7 @@
             [annotations addObject:[PhotoAnnotation CreateWithPhoto:photo]];
         
         mapViewContoller.annotations = annotations;
+        mapViewContoller.delegate = self;
     }
 }
 
@@ -82,6 +83,13 @@
         _photos = photos;
         [self.tableView reloadData];
     }
+}
+
+#pragma PhotosMapViewControllerDelegate
+- (UIImage *)mapViewController:(PhotosMapViewController *)sender imageForAnnotation:(id<MKAnnotation>)annotation {
+    NSURL *url = [FlickrFetcher urlForPhoto:((PhotoAnnotation *)annotation).photo format:FlickrPhotoFormatSquare];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    return [UIImage imageWithData:data];
 }
 
 @end

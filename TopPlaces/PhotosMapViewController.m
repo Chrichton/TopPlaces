@@ -7,7 +7,6 @@
 //
 
 #import "PhotosMapViewController.h"
-#import <MapKit/MapKit.h>
 #import "PhotoViewController.h"
 #import "PhotoAnnotation.h"
 
@@ -17,8 +16,8 @@
 @end
 
 @implementation PhotosMapViewController
-@synthesize mapView = _mapView;
-@synthesize annotations = _annotations;
+@synthesize mapView = _mapView, annotations = _annotations, delegate = _delegate;
+
 
 #define MINIMUM_ZOOM_ARC 0.014 //approximately 1 miles (1 degree of arc ~= 69 miles)
 #define ANNOTATION_REGION_PAD_FACTOR 1.15
@@ -95,10 +94,20 @@
         aView.canShowCallout = YES;
         UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         aView.rightCalloutAccessoryView = rightButton;
+        
+        aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     }
-    
+
+    [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
     aView.annotation = annotation;
+    
     return aView;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView
+{
+    UIImage *image = [self.delegate mapViewController:self imageForAnnotation:aView.annotation];
+    [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
