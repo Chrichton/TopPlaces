@@ -23,7 +23,7 @@
 
 @implementation PhotosTableViewController
 
-@synthesize photos = _photos;
+@synthesize photos = _photos, fileCache = _fileCache;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,7 +77,7 @@
     }
 }
 
-- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.splitViewController) {
         PhotoViewController *photoController = self.splitViewController.viewControllers.lastObject;
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
