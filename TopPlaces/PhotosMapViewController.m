@@ -120,7 +120,11 @@
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    [self performSegueWithIdentifier:@"MapPhotosToPhotoSegue" sender:view];
+    if (self.splitViewController) {
+        PhotoViewController *photoViewController = [self.splitViewController.viewControllers lastObject];
+        photoViewController.photo = ((PhotoAnnotation *)view.annotation).photo;
+    } else
+        [self performSegueWithIdentifier:@"MapPhotosToPhotoSegue" sender:view];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
