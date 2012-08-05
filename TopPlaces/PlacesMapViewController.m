@@ -9,6 +9,7 @@
 #import "PlacesMapViewController.h"
 #import "TopPhotosTableViewController.h"
 #import "PlaceAnnotation.h"
+#import "MapUtilities.h"
 
 @interface PlacesMapViewController ()<MKMapViewDelegate>
 
@@ -27,6 +28,8 @@
     
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:self.annotations];
+    
+    [MapUtilities zoomMapViewToFitAnnotations:self.mapView animated:YES];
 }
 
 - (void)viewDidUnload

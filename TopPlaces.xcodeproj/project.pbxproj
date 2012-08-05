@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FF209FCF15C43B4F00D88F6E /* RecentPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF209FCE15C43B4F00D88F6E /* RecentPhotosTableViewController.m */; };
+		FF2441F315CE73A300C762FE /* MapUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2441F215CE73A300C762FE /* MapUtilities.m */; };
 		FF4AB0A315CB739E0063BDD5 /* PhotosMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4AB0A215CB739E0063BDD5 /* PhotosMapViewController.m */; };
 		FF4AB0A715CB73C80063BDD5 /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4AB0A615CB73C80063BDD5 /* PhotoAnnotation.m */; };
 		FF4B5A7215C2EF9700217AA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4B5A7115C2EF9700217AA2 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 /* Begin PBXFileReference section */
 		FF209FCD15C43B4F00D88F6E /* RecentPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosTableViewController.h; sourceTree = "<group>"; };
 		FF209FCE15C43B4F00D88F6E /* RecentPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosTableViewController.m; sourceTree = "<group>"; };
+		FF2441F115CE73A300C762FE /* MapUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapUtilities.h; sourceTree = "<group>"; };
+		FF2441F215CE73A300C762FE /* MapUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapUtilities.m; sourceTree = "<group>"; };
 		FF4AB0A115CB739E0063BDD5 /* PhotosMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosMapViewController.h; sourceTree = "<group>"; };
 		FF4AB0A215CB739E0063BDD5 /* PhotosMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosMapViewController.m; sourceTree = "<group>"; };
 		FF4AB0A515CB73C80063BDD5 /* PhotoAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				FF4AB0A215CB739E0063BDD5 /* PhotosMapViewController.m */,
 				FF4AB0A515CB73C80063BDD5 /* PhotoAnnotation.h */,
 				FF4AB0A615CB73C80063BDD5 /* PhotoAnnotation.m */,
+				FF2441F115CE73A300C762FE /* MapUtilities.h */,
+				FF2441F215CE73A300C762FE /* MapUtilities.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				FF4AB0A315CB739E0063BDD5 /* PhotosMapViewController.m in Sources */,
 				FF4AB0A715CB73C80063BDD5 /* PhotoAnnotation.m in Sources */,
 				FF4E6FD315CBCCA600E745C0 /* FileCache.m in Sources */,
+				FF2441F315CE73A300C762FE /* MapUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
