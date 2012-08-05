@@ -17,23 +17,29 @@
 @property (nonatomic, readonly) FileCache *fileCache;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *photoDescription;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
 @implementation PhotoViewController
 @synthesize toolbar = _toolbar;
 @synthesize photoDescription = _photoDescription;
+@synthesize activityIndicator = _activityIndicator;
 
 @synthesize photoImageView = _photoImageView, photo = _photo, scrollView = _scrollView, fileCache = _fileCache;
 
 - (void) reloadPhoto {
     FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:self.photo];
     self.photoDescription.title = flickrPhoto.title;
-    
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [spinner startAnimating];
     UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+    
+    if (self.splitViewController)
+        [self.activityIndicator startAnimating];
+    else {
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [spinner startAnimating];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+    }
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
     dispatch_async(downloadQueue, ^{
@@ -60,6 +66,9 @@
             self.scrollView.zoomScale = MIN(heightScale, widthScale);
             
             self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+            
+            if (self.splitViewController)
+                [self.activityIndicator stopAnimating];
         });
     });
     
@@ -93,6 +102,7 @@ if (self.splitViewController)
     [self setScrollView:nil];
     [self setToolbar:nil];
     [self setPhotoDescription:nil];
+    [self setActivityIndicator:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
