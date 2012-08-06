@@ -21,6 +21,10 @@
 
 @synthesize mapView = _mapView, annotations = _annotations;
 
+- (IBAction)mapTypeChanged:(UISegmentedControl *)sender {
+    self.mapView.mapType = sender.selectedSegmentIndex;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -19,6 +19,11 @@
 @implementation PhotosMapViewController
 @synthesize mapView = _mapView, annotations = _annotations, delegate = _delegate;
 
+
+- (IBAction)mapTypeChanged:(UISegmentedControl *)sender {
+    self.mapView.mapType = sender.selectedSegmentIndex;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
