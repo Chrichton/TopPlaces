@@ -267,14 +267,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Places" id="8i6-90-BlT">
-                        <barButtonItem key="leftBarButtonItem" title="Map" id="t0t-yT-H06">
+                        <barButtonItem key="leftBarButtonItem" title="Refresh" id="nTh-zV-x8A">
                             <connections>
-                                <segue destination="iwR-VU-qmm" kind="push" identifier="PlacesToMapSegue" id="hbg-qX-1Eq"/>
+                                <action selector="refreshClicked:" destination="Keq-8f-W4f" id="iZ8-Vh-Wc1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="z48-Dg-AZl">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="t0t-yT-H06">
                             <connections>
-                                <action selector="refreshClicked:" destination="Keq-8f-W4f" id="L16-ZZ-Ef4"/>
+                                <segue destination="iwR-VU-qmm" kind="push" identifier="PlacesToMapSegue" id="hbg-qX-1Eq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -328,8 +328,11 @@
         <class className="PhotoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="photoDescription" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="PhotosMapViewController" superclassName="UIViewController">
@@ -349,12 +352,18 @@
         </class>
         <class className="PlacesTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
         </class>
         <class className="RecentPhotosTableViewController" superclassName="PhotosTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosTableViewController.h"/>
         </class>
         <class className="TopPhotosTableViewController" superclassName="PhotosTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPhotosTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -363,8 +372,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Q2U-Wo-GEC"/>
         <segue reference="ztX-He-32k"/>
-        <segue reference="BWR-SX-Vyl"/>
         <segue reference="DIC-R1-JQY"/>
     </inferredMetricsTieBreakers>
 </document>

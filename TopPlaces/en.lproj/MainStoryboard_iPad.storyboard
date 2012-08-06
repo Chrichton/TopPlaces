@@ -294,14 +294,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Places" id="XeM-Ts-5Nn">
-                        <barButtonItem key="leftBarButtonItem" title="Map" id="5MM-BU-Bxt">
+                        <barButtonItem key="leftBarButtonItem" title="Refresh" id="yRc-04-Oxn">
                             <connections>
-                                <segue destination="vGQ-zf-KcK" kind="push" identifier="PlacesToMapSegue" id="bmK-wz-IGd"/>
+                                <action selector="refreshClicked:" destination="sAI-Kn-PzR" id="u9y-Sd-bjt"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="aik-yV-xPp">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="5MM-BU-Bxt">
                             <connections>
-                                <action selector="refreshClicked:" destination="sAI-Kn-PzR" id="m0e-wf-6cp"/>
+                                <segue destination="vGQ-zf-KcK" kind="push" identifier="PlacesToMapSegue" id="bmK-wz-IGd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -400,7 +400,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="h3T-3M-v1W"/>
         <segue reference="uCZ-oc-AqB"/>
-        <segue reference="bY8-fS-KnV"/>
     </inferredMetricsTieBreakers>
 </document>
