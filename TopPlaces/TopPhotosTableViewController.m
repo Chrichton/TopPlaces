@@ -25,7 +25,7 @@
     UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     
-    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+    dispatch_queue_t downloadQueue = dispatch_queue_create("top photos queue", NULL);
     dispatch_async(downloadQueue, ^{
         NSArray *photos = [FlickrFetcher photosInPlace:self.place maxResults:50];
         dispatch_async(dispatch_get_main_queue(), ^ {
