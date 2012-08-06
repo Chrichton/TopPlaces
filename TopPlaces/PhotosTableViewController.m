@@ -58,14 +58,17 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     dispatch_queue_t queue = dispatch_queue_create("downloadqueue", NULL);
     cell.imageView.image = [UIImage imageNamed:@"emptyThumbnail.png"];
+    NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
     
     dispatch_async(queue, ^{
-        NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        UIImage *image = [self imageForPhoto:photo];
+        UIImage *image = [self imageForPhoto:[self.photos objectAtIndex:indexPath.row]];
+        NSDictionary *actualPhoto = [self.photos objectAtIndex:indexPath.row];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.imageView.image = image;
-        });
+        if (photo == actualPhoto) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.imageView.image = image;
+            });
+        }
     });
     
     dispatch_release(queue);
