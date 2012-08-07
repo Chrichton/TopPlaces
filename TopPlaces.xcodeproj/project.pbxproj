@@ -19,10 +19,7 @@
 		FF4B5A8215C2EF9700217AA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5A8115C2EF9700217AA2 /* AppDelegate.m */; };
 		FF4B5A8515C2EF9700217AA2 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A8315C2EF9700217AA2 /* MainStoryboard_iPhone.storyboard */; };
 		FF4B5A8815C2EF9700217AA2 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A8615C2EF9700217AA2 /* MainStoryboard_iPad.storyboard */; };
-		FF4B5A8D15C2EF9700217AA2 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A8C15C2EF9700217AA2 /* first.png */; };
-		FF4B5A8F15C2EF9700217AA2 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A8E15C2EF9700217AA2 /* first@2x.png */; };
-		FF4B5A9415C2EF9800217AA2 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A9315C2EF9800217AA2 /* second.png */; };
-		FF4B5A9615C2EF9800217AA2 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A9515C2EF9800217AA2 /* second@2x.png */; };
+		FF4B5A9415C2EF9800217AA2 /* emptyThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4B5A9315C2EF9800217AA2 /* emptyThumbnail.png */; };
 		FF4B5A9E15C2EF9800217AA2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4B5A9D15C2EF9800217AA2 /* SenTestingKit.framework */; };
 		FF4B5A9F15C2EF9800217AA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4B5A7115C2EF9700217AA2 /* UIKit.framework */; };
 		FF4B5AA015C2EF9800217AA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4B5A7315C2EF9700217AA2 /* Foundation.framework */; };
@@ -77,10 +74,7 @@
 		FF4B5A8115C2EF9700217AA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FF4B5A8415C2EF9700217AA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FF4B5A8715C2EF9700217AA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		FF4B5A8C15C2EF9700217AA2 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		FF4B5A8E15C2EF9700217AA2 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		FF4B5A9315C2EF9800217AA2 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		FF4B5A9515C2EF9800217AA2 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		FF4B5A9315C2EF9800217AA2 /* emptyThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyThumbnail.png; sourceTree = "<group>"; };
 		FF4B5A9C15C2EF9800217AA2 /* TopPlacesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopPlacesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF4B5A9D15C2EF9800217AA2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FF4B5AA515C2EF9800217AA2 /* TopPlacesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TopPlacesTests-Info.plist"; sourceTree = "<group>"; };
@@ -191,10 +185,7 @@
 				FF209FCE15C43B4F00D88F6E /* RecentPhotosTableViewController.m */,
 				FF4E6FD115CBCCA600E745C0 /* FileCache.h */,
 				FF4E6FD215CBCCA600E745C0 /* FileCache.m */,
-				FF4B5A8C15C2EF9700217AA2 /* first.png */,
-				FF4B5A8E15C2EF9700217AA2 /* first@2x.png */,
-				FF4B5A9315C2EF9800217AA2 /* second.png */,
-				FF4B5A9515C2EF9800217AA2 /* second@2x.png */,
+				FF4B5A9315C2EF9800217AA2 /* emptyThumbnail.png */,
 				FF4B5A7815C2EF9700217AA2 /* Supporting Files */,
 			);
 			path = TopPlaces;
@@ -335,10 +326,7 @@
 				FF4B5A7C15C2EF9700217AA2 /* InfoPlist.strings in Resources */,
 				FF4B5A8515C2EF9700217AA2 /* MainStoryboard_iPhone.storyboard in Resources */,
 				FF4B5A8815C2EF9700217AA2 /* MainStoryboard_iPad.storyboard in Resources */,
-				FF4B5A8D15C2EF9700217AA2 /* first.png in Resources */,
-				FF4B5A8F15C2EF9700217AA2 /* first@2x.png in Resources */,
-				FF4B5A9415C2EF9800217AA2 /* second.png in Resources */,
-				FF4B5A9615C2EF9800217AA2 /* second@2x.png in Resources */,
+				FF4B5A9415C2EF9800217AA2 /* emptyThumbnail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

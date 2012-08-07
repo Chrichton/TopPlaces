@@ -29,7 +29,7 @@
     UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     
-    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+    dispatch_queue_t downloadQueue = dispatch_queue_create("places queue", NULL);
     dispatch_async(downloadQueue, ^{
         NSArray *flickrPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^NSComparisonResult(NSDictionary* a, NSDictionary* b) {
             FlickrPlace *first = [[FlickrPlace alloc ] initWithPlace:a];

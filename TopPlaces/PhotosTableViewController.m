@@ -25,10 +25,22 @@
 
 @synthesize photos = _photos, fileCache = _fileCache;
 
+- (UIImage *)imageForPhoto:(NSDictionary *)photo {
+    NSString *photoId = [photo valueForKey:FLICKR_PHOTO_ID];
+    NSData * data = [self.fileCache dataForFilename:photoId];
+    if (!data) {
+        NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatSquare];
+        data = [NSData dataWithContentsOfURL:url];
+        [self.fileCache addData:data withFilename:photoId];
+    }
+    
+    return [UIImage imageWithData:data];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _fileCache = [[FileCache alloc] initWithName:@"FlickrThumbnails" andMaxSize:1000000];
+    _fileCache = [[FileCache alloc] initWithName:@"photos thumbnails queue" andMaxSize:1000000];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -42,6 +54,26 @@
 {
     return [self.photos count];
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    dispatch_queue_t queue = dispatch_queue_create("downloadqueue", NULL);
+    cell.imageView.image = [UIImage imageNamed:@"emptyThumbnail.png"];
+    NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
+    
+    dispatch_async(queue, ^{
+        UIImage *image = [self imageForPhoto:[self.photos objectAtIndex:indexPath.row]];
+        NSDictionary *actualPhoto = [self.photos objectAtIndex:indexPath.row];
+        
+        if (photo == actualPhoto) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.imageView.image = image;
+            });
+        }
+    });
+    
+    dispatch_release(queue);
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -96,15 +128,7 @@
 #pragma PhotosMapViewControllerDelegate
 - (UIImage *)mapViewController:(PhotosMapViewController *)sender imageForAnnotation:(id<MKAnnotation>)annotation {
     NSDictionary *photo = ((PhotoAnnotation *)annotation).photo;
-    NSString *photoId = [photo valueForKey:FLICKR_PHOTO_ID];
-    NSData * data = [self.fileCache dataForFilename:photoId];
-    if (!data) {
-        NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatSquare];
-        data = [NSData dataWithContentsOfURL:url];
-        [self.fileCache addData:data withFilename:photoId];
-    }
-        
-    return [UIImage imageWithData:data];
+    return [self imageForPhoto:photo];
 }
 
 @end

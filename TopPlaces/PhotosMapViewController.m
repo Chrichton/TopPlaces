@@ -68,7 +68,7 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView
 {
-    dispatch_queue_t queue = dispatch_queue_create("download_queue", NULL);
+    dispatch_queue_t queue = dispatch_queue_create("photos annotation queue", NULL);
     dispatch_async(queue, ^{
         UIImage *image = [self.delegate mapViewController:self imageForAnnotation:aView.annotation];
         if ([self.annotations containsObject:aView.annotation]) {

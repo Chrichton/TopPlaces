@@ -41,7 +41,7 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     }
     
-    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+    dispatch_queue_t downloadQueue = dispatch_queue_create("photo queue", NULL);
     dispatch_async(downloadQueue, ^{
         NSString *photoId = [self.photo objectForKey:FLICKR_PHOTO_ID];
         NSData *data = [self.fileCache dataForFilename:photoId];
