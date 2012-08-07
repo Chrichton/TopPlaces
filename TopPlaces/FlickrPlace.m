@@ -7,6 +7,7 @@
 //
 
 #import "FlickrPlace.h"
+#import "FlickrFetcher.h"
 
 @implementation FlickrPlace
 
@@ -15,7 +16,7 @@
 - (FlickrPlace *) initWithPlace: (NSDictionary *)place {
     self = [super init];
     if (self) {
-        NSString *content = [place valueForKey:@"_content"];
+        NSString *content = [place valueForKey:FLICKR_PLACE_NAME];
         NSArray *listItems = [content componentsSeparatedByString:@", "];
 
         _city = [listItems objectAtIndex:0];

@@ -7,6 +7,7 @@
 //
 
 #import "RecentPhotosTableViewController.h"
+#import "FlickrFetcher.h"
 
 @interface RecentPhotosTableViewController ()
 
@@ -29,10 +30,10 @@
     if (!photos)
         photos = [NSMutableArray array];
     
-    NSString *photoId =  [photo valueForKey:@"id"];
+    NSString *photoId =  [photo valueForKey:FLICKR_PHOTO_ID];
     
     NSIndexSet *indices = [photos indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-        NSString *evaluatedPhotoId = [obj valueForKey:@"id"];
+        NSString *evaluatedPhotoId = [obj valueForKey:FLICKR_PHOTO_ID];
         if ([evaluatedPhotoId isEqualToString:photoId]) {
             *stop = YES;
             return YES;
