@@ -63,6 +63,8 @@
     [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
     aView.annotation = annotation;
     
+    aView.tag = [self.annotations indexOfObject:annotation]; // For Checking in didSelectAnnotationView
+    
     return aView;
 }
 
@@ -71,7 +73,7 @@
     dispatch_queue_t queue = dispatch_queue_create("photos annotation queue", NULL);
     dispatch_async(queue, ^{
         UIImage *image = [self.delegate mapViewController:self imageForAnnotation:aView.annotation];
-        if ([self.annotations containsObject:aView.annotation]) {
+        if ([self.annotations indexOfObject:aView.annotation] == aView.tag) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
             });
