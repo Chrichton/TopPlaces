@@ -9,6 +9,7 @@
 #import "CreateVacationTest.h"
 #import "VacationHelper.h"
 #import "Place+Create.h"
+#import "Photo.h"
 
 @implementation CreateVacationTest
 
@@ -16,7 +17,14 @@
     BOOL __block finished = NO;
     
     [VacationHelper openVacation:@"Default Vacation Database" usingBlock:^(UIManagedDocument *vacation) {
-        [Place placeWithName:@"place1" inManagedObjectContext:vacation.managedObjectContext];
+        Place *place = [Place placeWithName:@"place1" inManagedObjectContext:vacation.managedObjectContext];
+        Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:vacation.managedObjectContext];
+        photo.id = @"id1";
+        photo.title = @"title1";
+        photo.subtitle = @"subtitle1";
+        photo.imageURL = @"url1";
+        photo.place = place;
+        
         [Place placeWithName:@"place2" inManagedObjectContext:vacation.managedObjectContext];
         
         [vacation saveToURL:vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {

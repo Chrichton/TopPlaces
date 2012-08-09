@@ -48,6 +48,7 @@
 		FF5C92C515C9B9DD0090AB4F /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5C92C415C9B9DD0090AB4F /* PlaceAnnotation.m */; };
 		FF6975DB15C3D9B600E3D45E /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */; };
 		FF75F1E415D4153B004D5B1D /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = FF75F1E315D4153B004D5B1D /* Place.m */; };
+		FF75F1E815D41751004D5B1D /* VacationPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF75F1E715D41751004D5B1D /* VacationPhotosTableViewController.m */; };
 		FF7EAFB915D26255003BE5C4 /* TopPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF7EAFB715D26255003BE5C4 /* TopPlaces.xcdatamodeld */; };
 		FF92B3C615D2B4D600587C01 /* Photo+Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3C515D2B4D600587C01 /* Photo+Flickr.m */; };
 		FF92B3CF15D2CAA200587C01 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3CE15D2CAA200587C01 /* Tag.m */; };
@@ -128,6 +129,8 @@
 		FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		FF75F1E215D4153B004D5B1D /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		FF75F1E315D4153B004D5B1D /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		FF75F1E615D41751004D5B1D /* VacationPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VacationPhotosTableViewController.h; sourceTree = "<group>"; };
+		FF75F1E715D41751004D5B1D /* VacationPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationPhotosTableViewController.m; sourceTree = "<group>"; };
 		FF7EAFB815D26255003BE5C4 /* TopPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TopPlaces.xcdatamodel; sourceTree = "<group>"; };
 		FF92B3C415D2B4D600587C01 /* Photo+Flickr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Flickr.h"; sourceTree = "<group>"; };
 		FF92B3C515D2B4D600587C01 /* Photo+Flickr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Flickr.m"; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */,
 				FFFF718515D29B6A00696F1A /* VacationPlacesTableViewController.h */,
 				FFFF718615D29B6A00696F1A /* VacationPlacesTableViewController.m */,
+				FF75F1E615D41751004D5B1D /* VacationPhotosTableViewController.h */,
+				FF75F1E715D41751004D5B1D /* VacationPhotosTableViewController.m */,
 				E3F39BC015D3DA35009A373D /* TagsTableViewController.h */,
 				E3F39BC115D3DA35009A373D /* TagsTableViewController.m */,
 				FF6975D915C3D9B600E3D45E /* PhotoViewController.h */,
@@ -471,6 +476,7 @@
 				E3E446B715D392640009E6BD /* VirtualVacationTableViewController.m in Sources */,
 				E3F39BC215D3DA35009A373D /* TagsTableViewController.m in Sources */,
 				FF75F1E415D4153B004D5B1D /* Place.m in Sources */,
+				FF75F1E815D41751004D5B1D /* VacationPhotosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

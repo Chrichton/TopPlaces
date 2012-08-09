@@ -9,6 +9,7 @@
 #import "VacationPlacesTableViewController.h"
 #import "VacationHelper.h"
 #import "Place.h"
+#import "VacationPhotosTableViewController.h"
 
 @interface VacationPlacesTableViewController ()
 
@@ -34,6 +35,16 @@
     cell.textLabel.text = place.name;
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"VacationPlacesToPhotos"]) {
+        VacationPhotosTableViewController *controller = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Place *place = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.place = place;
+    }
 }
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
