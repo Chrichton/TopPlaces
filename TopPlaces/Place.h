@@ -2,7 +2,7 @@
 //  Place.h
 //  TopPlaces
 //
-//  Created by Heiko Goes on 08.08.12.
+//  Created by Heiko Goes on 09.08.12.
 //  Copyright (c) 2012 Heiko Goes. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @interface Place : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSDate * timestamp;
 @property (nonatomic, retain) NSSet *photos;
 @end
 

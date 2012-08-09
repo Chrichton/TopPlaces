@@ -10,6 +10,7 @@
     </entity>
     <entity name="Place" representedClassName="Place" syncable="YES">
         <attribute name="name" attributeType="String" minValueString="1" indexed="YES" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Photo" inverseName="place" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
@@ -17,8 +18,8 @@
         <relationship name="photos" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="tags" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="-3636" positionY="-3429" width="128" height="103"/>
-        <element name="Place" positionX="-3897" positionY="-3420" width="128" height="73"/>
-        <element name="Tag" positionX="-3665" positionY="-3195" width="128" height="73"/>
+        <element name="Photo" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Place" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Tag" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

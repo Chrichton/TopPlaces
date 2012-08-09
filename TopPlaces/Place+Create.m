@@ -28,6 +28,7 @@
         place = [NSEntityDescription insertNewObjectForEntityForName:@"Place"
                                                      inManagedObjectContext:context];
         place.name = name;
+        place.timestamp = [NSDate date];
     } else {
         place = [places lastObject];
     }
