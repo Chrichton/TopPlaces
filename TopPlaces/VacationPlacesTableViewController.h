@@ -11,6 +11,6 @@
 
 @interface VacationPlacesTableViewController : CoreDataTableViewController
 
-@property (nonatomic, strong) UIManagedDocument *vacationDatabase;
+@property (nonatomic, strong) NSString *vacationName;
 
 @end

@@ -8,24 +8,17 @@
 
 #import "VacationPlacesTableViewController.h"
 #import "VacationHelper.h"
+#import "Place.h"
 
 @interface VacationPlacesTableViewController ()
+
+@property (nonatomic, strong) UIManagedDocument *vacationDatabase;
 
 @end
 
 @implementation VacationPlacesTableViewController
 
-@synthesize vacationDatabase = _vacationDatabase;
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if (!self.vacationDatabase) {
-        [VacationHelper openVacation:@"Default Vacation Database" usingBlock:^(UIManagedDocument *vacation) {
-            self.vacationDatabase = vacation;
-        }];
-    }
-}
+@synthesize vacationName = _vacationName, vacationDatabase = _vacationDatabase;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -34,10 +27,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"VacationPlacesTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+    Place *place = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = place.name;
     
     return cell;
 }
@@ -53,10 +47,14 @@
                                                                                    cacheName:nil];
 }
 
-- (void)setVacationDatabase:(UIManagedDocument *)vacationDatabase {
-    if (vacationDatabase != self.vacationDatabase) {
-        _vacationDatabase = vacationDatabase;
-        [self setupFetchedResultsController];
+- (void)setVacationName:(NSString *)vacationName {
+    if (vacationName != self.vacationName) {
+        _vacationName = vacationName;
+        
+        [VacationHelper openVacation:vacationName usingBlock:^(UIManagedDocument *vacation) {
+            self.vacationDatabase = vacation;
+            [self setupFetchedResultsController];
+        }];
     }
 }
 

@@ -6,16 +6,17 @@
 //  Copyright (c) 2012 Heiko Goes. All rights reserved.
 //
 
-#import "VirtualPlacesTableViewController.h"
+#import "VirtualVacationsTableViewController.h"
 #import "VacationHelper.h"
+#import "VirtualVacationTableViewController.h"
 
-@interface VirtualPlacesTableViewController ()
+@interface VirtualVacationsTableViewController ()
 
 @property (nonatomic, strong) NSArray *vacations;
 
 @end
 
-@implementation VirtualPlacesTableViewController
+@implementation VirtualVacationsTableViewController
 
 @synthesize vacations = _vacations;
 
@@ -57,6 +58,12 @@
     cell.textLabel.text = [url lastPathComponent];
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    VirtualVacationTableViewController * controller = [segue destinationViewController];
+    UITableViewCell *cell = sender;
+    controller.vacationName = cell.textLabel.text;
 }
 
 @end

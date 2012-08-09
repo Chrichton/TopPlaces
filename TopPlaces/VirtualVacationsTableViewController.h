@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VirtualPlacesTableViewController : UITableViewController
+@interface VirtualVacationsTableViewController : UITableViewController
 
 @end
