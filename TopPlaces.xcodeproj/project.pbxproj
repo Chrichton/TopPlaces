@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		E3E446B715D392640009E6BD /* VirtualVacationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */; };
 		E3F39BC215D3DA35009A373D /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F39BC115D3DA35009A373D /* TagsTableViewController.m */; };
+		E3F39BC415D3DF50009A373D /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3D515D2CCD500587C01 /* Photo.m */; };
+		E3F39BC515D3DF50009A373D /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3E815D2D14200587C01 /* Place.m */; };
+		E3F39BC615D3DF50009A373D /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3CE15D2CAA200587C01 /* Tag.m */; };
+		E3F39BC715D3DF50009A373D /* Photo+Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3C515D2B4D600587C01 /* Photo+Flickr.m */; };
+		E3F39BC815D3DF50009A373D /* Place+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3D815D2CD7200587C01 /* Place+Create.m */; };
+		E3F39BC915D3E01D009A373D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF92B3DD15D2CFD900587C01 /* CoreData.framework */; };
 		FF209FCF15C43B4F00D88F6E /* RecentPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF209FCE15C43B4F00D88F6E /* RecentPhotosTableViewController.m */; };
 		FF2441F315CE73A300C762FE /* MapUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2441F215CE73A300C762FE /* MapUtilities.m */; };
 		FF4AB0A315CB739E0063BDD5 /* PhotosMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4AB0A215CB739E0063BDD5 /* PhotosMapViewController.m */; };
@@ -168,6 +174,7 @@
 				FF4B5A9E15C2EF9800217AA2 /* SenTestingKit.framework in Frameworks */,
 				FF4B5A9F15C2EF9800217AA2 /* UIKit.framework in Frameworks */,
 				FF4B5AA015C2EF9800217AA2 /* Foundation.framework in Frameworks */,
+				E3F39BC915D3E01D009A373D /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +486,11 @@
 				FF4E6FD415CBCCA600E745C0 /* FileCache.m in Sources */,
 				FFF7B02515D368E300AF9442 /* CreateVacationTest.m in Sources */,
 				FFF7B02715D3695800AF9442 /* VacationHelper.m in Sources */,
+				E3F39BC415D3DF50009A373D /* Photo.m in Sources */,
+				E3F39BC515D3DF50009A373D /* Place.m in Sources */,
+				E3F39BC615D3DF50009A373D /* Tag.m in Sources */,
+				E3F39BC715D3DF50009A373D /* Photo+Flickr.m in Sources */,
+				E3F39BC815D3DF50009A373D /* Place+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

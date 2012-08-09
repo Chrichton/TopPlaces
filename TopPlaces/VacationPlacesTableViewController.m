@@ -50,7 +50,6 @@
 - (void)setVacationName:(NSString *)vacationName {
     if (vacationName != self.vacationName) {
         _vacationName = vacationName;
-        
         [VacationHelper openVacation:vacationName usingBlock:^(UIManagedDocument *vacation) {
             self.vacationDatabase = vacation;
             [self setupFetchedResultsController];
