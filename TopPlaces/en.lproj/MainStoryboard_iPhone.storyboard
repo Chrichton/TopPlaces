@@ -20,10 +20,63 @@
                     <connections>
                         <segue destination="Qig-Cx-koC" kind="relationship" relationship="viewControllers" id="yxk-jG-xM9"/>
                         <segue destination="Fx2-Z1-Opm" kind="relationship" relationship="viewControllers" id="EgQ-9o-Pp1"/>
+                        <segue destination="rF0-x4-MEN" kind="relationship" relationship="viewControllers" id="HkB-f1-uJR"/>
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="-2969" y="-276"/>
+            <point key="canvasLocation" x="-6061" y="-370"/>
+        </scene>
+        <!--Virtual Places Table View Controller-->
+        <scene sceneID="cwD-KT-XZ3">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SM6-ss-vAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="vh6-Rc-bCr" customClass="VirtualPlacesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="T1d-pP-Z7K">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VirtualVacationsTableViewCell" textLabel="veu-uQ-au2" style="IBUITableViewCellStyleDefault" id="TeU-bz-0fh">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="veu-uQ-au2">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Wuh-xp-EYW"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-3740" y="1277"/>
+        </scene>
+        <!--Navigation Controller - Virtual Vacations-->
+        <scene sceneID="vD3-7I-fTI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NCL-Ix-OHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="rF0-x4-MEN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Virtual Vacations" id="96w-rI-xfo"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="El6-xX-dVJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vh6-Rc-bCr" kind="relationship" relationship="rootViewController" id="NCw-Bc-K33"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-4983" y="1277"/>
         </scene>
         <!--Places Map View Controller-->
         <scene sceneID="iLh-AF-X4v">
@@ -47,7 +100,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-1268" y="-1580"/>
+            <point key="canvasLocation" x="-4372" y="-1660"/>
         </scene>
         <!--Photos Map View Controller-->
         <scene sceneID="opa-DP-OAO">
@@ -72,7 +125,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-62" y="-1535"/>
+            <point key="canvasLocation" x="-3166" y="-1615"/>
         </scene>
         <!--Top Photos Table View Controller - Photos-->
         <scene sceneID="I9X-vz-QJS">
@@ -129,7 +182,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-644" y="-885"/>
+            <point key="canvasLocation" x="-3748" y="-965"/>
         </scene>
         <!--Recent Photos Table View Controller-->
         <scene sceneID="kAQ-9Y-0A3">
@@ -185,7 +238,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-649" y="414"/>
+            <point key="canvasLocation" x="-3753" y="334"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="2Ln-HA-1eC">
@@ -220,7 +273,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="304" y="414"/>
+            <point key="canvasLocation" x="-2800" y="334"/>
         </scene>
         <!--Places Table View Controller - Places-->
         <scene sceneID="3hq-j1-yGr">
@@ -282,7 +335,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-1268" y="-885"/>
+            <point key="canvasLocation" x="-4372" y="-965"/>
         </scene>
         <!--Navigation Controller - Places-->
         <scene sceneID="BG9-yE-EJo">
@@ -302,7 +355,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-1910" y="-885"/>
+            <point key="canvasLocation" x="-5014" y="-965"/>
         </scene>
         <!--Navigation Controller - Photos-->
         <scene sceneID="Zds-e1-t1j">
@@ -321,15 +374,18 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-1879" y="414"/>
+            <point key="canvasLocation" x="-4983" y="334"/>
         </scene>
     </scenes>
     <classes>
         <class className="PhotoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="photoDescription" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="PhotosMapViewController" superclassName="UIViewController">
@@ -349,12 +405,21 @@
         </class>
         <class className="PlacesTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
         </class>
         <class className="RecentPhotosTableViewController" superclassName="PhotosTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosTableViewController.h"/>
         </class>
         <class className="TopPhotosTableViewController" superclassName="PhotosTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPhotosTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshClicked:"/>
+            </relationships>
+        </class>
+        <class className="VirtualPlacesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VirtualPlacesTableViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -363,8 +428,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ztX-He-32k"/>
-        <segue reference="BWR-SX-Vyl"/>
-        <segue reference="DIC-R1-JQY"/>
+        <segue reference="Q2U-Wo-GEC"/>
+        <segue reference="eGM-iN-BHD"/>
+        <segue reference="pQv-4k-lra"/>
     </inferredMetricsTieBreakers>
 </document>

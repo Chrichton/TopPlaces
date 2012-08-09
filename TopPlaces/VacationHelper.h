@@ -12,6 +12,8 @@ typedef void (^completion_block_t)(UIManagedDocument *vacation);
 
 @interface VacationHelper : NSObject
 
++ (NSURL *)rootURL;
+
 + (void)openVacation:(NSString *)vacationName
           usingBlock:(completion_block_t)completionBlock;
 
