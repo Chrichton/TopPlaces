@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E339B21415D4DFB6005D46E5 /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = E339B21315D4DFB6005D46E5 /* Tag+Create.m */; };
+		E339B21615D4E0DE005D46E5 /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = E339B21315D4DFB6005D46E5 /* Tag+Create.m */; };
 		E3E446B715D392640009E6BD /* VirtualVacationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */; };
 		E3F39BC215D3DA35009A373D /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F39BC115D3DA35009A373D /* TagsTableViewController.m */; };
 		E3F39BC415D3DF50009A373D /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3D515D2CCD500587C01 /* Photo.m */; };
@@ -75,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E339B21215D4DFB6005D46E5 /* Tag+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tag+Create.h"; sourceTree = "<group>"; };
+		E339B21315D4DFB6005D46E5 /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+Create.m"; sourceTree = "<group>"; };
 		E3E446B515D392640009E6BD /* VirtualVacationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualVacationTableViewController.h; sourceTree = "<group>"; };
 		E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualVacationTableViewController.m; sourceTree = "<group>"; };
 		E3F39BC015D3DA35009A373D /* TagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 				FF92B3C515D2B4D600587C01 /* Photo+Flickr.m */,
 				FF92B3D715D2CD7200587C01 /* Place+Create.h */,
 				FF92B3D815D2CD7200587C01 /* Place+Create.m */,
+				E339B21215D4DFB6005D46E5 /* Tag+Create.h */,
+				E339B21315D4DFB6005D46E5 /* Tag+Create.m */,
 			);
 			name = "Core-Data";
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 				E3F39BC215D3DA35009A373D /* TagsTableViewController.m in Sources */,
 				FF75F1E415D4153B004D5B1D /* Place.m in Sources */,
 				FF75F1E815D41751004D5B1D /* VacationPhotosTableViewController.m in Sources */,
+				E339B21415D4DFB6005D46E5 /* Tag+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +502,7 @@
 				E3F39BC615D3DF50009A373D /* Tag.m in Sources */,
 				E3F39BC715D3DF50009A373D /* Photo+Flickr.m in Sources */,
 				E3F39BC815D3DF50009A373D /* Place+Create.m in Sources */,
+				E339B21615D4E0DE005D46E5 /* Tag+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
