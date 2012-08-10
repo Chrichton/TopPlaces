@@ -10,6 +10,7 @@
 #import "VacationHelper.h"
 #import "Photo.h"
 #import "Tag.h"
+#import "VacationPhotosTableViewController.h"
 
 @interface VacationTagsTableViewController ()
 
@@ -36,6 +37,15 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [tag.photos count]];
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"VacationTagsToPhotos"]) {
+        VacationPhotosTableViewController *controller = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.photos = [tag.photos allObjects];
+    }
 }
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController

@@ -15,7 +15,7 @@
 
 @implementation VacationPhotosTableViewController
 
-@synthesize place = _place;
+@synthesize photos = _photos;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -36,19 +36,18 @@
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-    request.predicate = [NSPredicate predicateWithFormat:@"place = %@", self.place];
-
+    request.predicate = [NSPredicate predicateWithFormat:@"%@ CONTAINS self", self.photos];
     request.sortDescriptors = [NSArray array];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:self.place.managedObjectContext
+                                                                        managedObjectContext:((Photo *)[self.photos lastObject]).managedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
 }
 
-- (void)setPlace:(Place *)place {
-    if (_place != place) {
-        _place = place;
+- (void)setPhotos:(NSArray *)photos {
+    if (_photos != photos) {
+        _photos = photos;
         [self setupFetchedResultsController];
     }
 }

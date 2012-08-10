@@ -12,6 +12,6 @@
 
 @interface VacationPhotosTableViewController : CoreDataTableViewController
 
-@property (nonatomic, strong) Place *place;
+@property (nonatomic, strong) NSArray *photos;
 
 @end
