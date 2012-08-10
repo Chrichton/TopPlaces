@@ -12,6 +12,7 @@
 
 - (FlickrPhoto *) initWithPhoto: (NSDictionary *)photo;
 
+@property (nonatomic, readonly) NSString *photoId;
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *description;
 @end

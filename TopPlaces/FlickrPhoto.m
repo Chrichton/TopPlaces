@@ -7,15 +7,17 @@
 //
 
 #import "FlickrPhoto.h"
+#import "FlickrFetcher.h"
 
 @implementation FlickrPhoto
 
-@synthesize title = _title, description = _description;
+@synthesize photoId = _photoId, title = _title, description = _description;
 
 - (FlickrPhoto *) initWithPhoto: (NSDictionary *)photo {
     self = [super init];
     if (self) {
-        _description = [photo valueForKeyPath:@"description._content"];
+        _photoId = [photo valueForKey:FLICKR_PHOTO_ID];
+        _description = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
         
         _title = [photo valueForKey:@"title"];
         if (_title.length == 0) {

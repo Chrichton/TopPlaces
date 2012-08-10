@@ -40,6 +40,7 @@
 		FF4B5ABD15C2F36600217AA2 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */; };
 		FF4B5AC415C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */; };
 		FF4B5AC515C2FBAF00217AA2 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */; };
+		FF4BE26915D5B38400E231DA /* PhotoDefintion.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4BE26815D5B38400E231DA /* PhotoDefintion.m */; };
 		FF4E6FD315CBCCA600E745C0 /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4E6FD215CBCCA600E745C0 /* FileCache.m */; };
 		FF4E6FD415CBCCA600E745C0 /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4E6FD215CBCCA600E745C0 /* FileCache.m */; };
 		FF51D7E815C74BD900F1E301 /* TopPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF51D7E715C74BD900F1E301 /* TopPhotosTableViewController.m */; };
@@ -118,6 +119,8 @@
 		FF4B5ABB15C2F36600217AA2 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
 		FF4B5AC215C2FBAF00217AA2 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		FF4B5AC315C2FBAF00217AA2 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
+		FF4BE26715D5B38400E231DA /* PhotoDefintion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDefintion.h; sourceTree = "<group>"; };
+		FF4BE26815D5B38400E231DA /* PhotoDefintion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDefintion.m; sourceTree = "<group>"; };
 		FF4E6FD115CBCCA600E745C0 /* FileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCache.h; sourceTree = "<group>"; };
 		FF4E6FD215CBCCA600E745C0 /* FileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
 		FF51D7E615C74BD900F1E301 /* TopPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPhotosTableViewController.h; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				FF4B5A8615C2EF9700217AA2 /* MainStoryboard_iPad.storyboard */,
 				FF92B3EB15D2D18600587C01 /* VacationHelper.h */,
 				FF92B3EC15D2D18600587C01 /* VacationHelper.m */,
+				FF4BE26715D5B38400E231DA /* PhotoDefintion.h */,
+				FF4BE26815D5B38400E231DA /* PhotoDefintion.m */,
 				FFFF718115D29A9E00696F1A /* CoreDataTableViewController.h */,
 				FFFF718215D29A9E00696F1A /* CoreDataTableViewController.m */,
 				FFF7B02815D36B4F00AF9442 /* VirtualVacationsTableViewController.h */,
@@ -483,6 +488,7 @@
 				FF75F1E815D41751004D5B1D /* VacationPhotosTableViewController.m in Sources */,
 				E339B21415D4DFB6005D46E5 /* Tag+Create.m in Sources */,
 				E339B22D15D4F482005D46E5 /* Tag.m in Sources */,
+				FF4BE26915D5B38400E231DA /* PhotoDefintion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

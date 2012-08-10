@@ -29,14 +29,13 @@
 @synthesize photoImageView = _photoImageView, photo = _photo, scrollView = _scrollView, fileCache = _fileCache;
 
 - (void) reloadPhoto {
-    FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:self.photo];
     UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
     
     if (self.splitViewController) {
-        self.photoDescription.title = flickrPhoto.title;
+        self.photoDescription.title = self.photo.title;
         [self.activityIndicator startAnimating];
     } else {
-        self.title = flickrPhoto.title;
+        self.title = self.photo.title;
         UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [spinner startAnimating];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
@@ -44,12 +43,11 @@
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("photo queue", NULL);
     dispatch_async(downloadQueue, ^{
-        NSString *photoId = [self.photo objectForKey:FLICKR_PHOTO_ID];
-        NSData *data = [self.fileCache dataForFilename:photoId];
+        NSData *data = [self.fileCache dataForFilename:self.photo.photoId];
         if (!data) {
-            NSURL *url = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge];
+            NSURL *url = self.photo.imageURL();
             data = [NSData dataWithContentsOfURL:url];
-            [self.fileCache addData:data withFilename:photoId];
+            [self.fileCache addData:data withFilename:self.photo.photoId];
         }
         
         UIImage *image = [UIImage imageWithData:data];
@@ -90,7 +88,7 @@
         [self reloadPhoto];
 }
 
-- (void) setPhoto:(NSDictionary *)photo {
+- (void) setPhoto:(PhotoDefintion *)photo {
     _photo = photo;
     
 if (self.splitViewController) 

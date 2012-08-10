@@ -96,7 +96,7 @@
         UITableViewCell * cell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        photoController.photo = photo;
+        photoController.photo = [PhotoDefintion createWithFlickrPhoto:photo];
         [RecentPhotosTableViewController addPhoto:photo];
     } else if ([segue.identifier isEqualToString:@"PhotosToMapSegue"]) {
         PhotosMapViewController *mapViewContoller = segue.destinationViewController;
@@ -113,7 +113,7 @@
     if (self.splitViewController) {
         PhotoViewController *photoController = self.splitViewController.viewControllers.lastObject;
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        photoController.photo = photo;
+        photoController.photo = [PhotoDefintion createWithFlickrPhoto:photo];
         [RecentPhotosTableViewController addPhoto:photo];
     }
 }

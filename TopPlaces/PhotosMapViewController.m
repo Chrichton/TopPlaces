@@ -79,16 +79,18 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     if (self.splitViewController) {
         PhotoViewController *photoViewController = [self.splitViewController.viewControllers lastObject];
-        photoViewController.photo = ((PhotoAnnotation *)view.annotation).photo;
+        NSDictionary *photo = ((PhotoAnnotation *)view.annotation).photo;
+        photoViewController.photo = [PhotoDefintion createWithFlickrPhoto:photo];
     } else
         [self performSegueWithIdentifier:@"MapPhotosToPhotoSegue" sender:view];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"MapPhotosToPhotoSegue"]) {
-        PhotoViewController *photoController = segue.destinationViewController;
+        PhotoViewController *photoViewController = segue.destinationViewController;
         MKAnnotationView *view = sender;
-        photoController.photo = ((PhotoAnnotation *)view.annotation).photo;
+        NSDictionary *photo = ((PhotoAnnotation *)view.annotation).photo;
+        photoViewController.photo = [PhotoDefintion createWithFlickrPhoto:photo];
     }
 }
 
