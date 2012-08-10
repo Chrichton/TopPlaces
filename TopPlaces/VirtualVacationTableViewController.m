@@ -8,7 +8,7 @@
 
 #import "VirtualVacationTableViewController.h"
 #import "VacationPlacesTableViewController.h"
-#import "TagsTableViewController.h"
+#import "VacationTagsTableViewController.h"
 
 @interface VirtualVacationTableViewController ()
 
@@ -33,7 +33,7 @@
         VacationPlacesTableViewController *controller = segue.destinationViewController;
         controller.vacationName = self.title;
     } else if ([segue.identifier isEqualToString:@"VirtualVacationToTags"]) {
-        TagsTableViewController *controller = segue.destinationViewController;
+        VacationTagsTableViewController *controller = segue.destinationViewController;
         controller.vacationName = self.title;
     }
 }

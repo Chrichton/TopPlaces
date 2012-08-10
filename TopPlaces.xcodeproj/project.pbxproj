@@ -10,7 +10,7 @@
 		E339B21415D4DFB6005D46E5 /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = E339B21315D4DFB6005D46E5 /* Tag+Create.m */; };
 		E339B21615D4E0DE005D46E5 /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = E339B21315D4DFB6005D46E5 /* Tag+Create.m */; };
 		E3E446B715D392640009E6BD /* VirtualVacationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */; };
-		E3F39BC215D3DA35009A373D /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F39BC115D3DA35009A373D /* TagsTableViewController.m */; };
+		E3F39BC215D3DA35009A373D /* VacationTagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F39BC115D3DA35009A373D /* VacationTagsTableViewController.m */; };
 		E3F39BC415D3DF50009A373D /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3D515D2CCD500587C01 /* Photo.m */; };
 		E3F39BC615D3DF50009A373D /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3CE15D2CAA200587C01 /* Tag.m */; };
 		E3F39BC715D3DF50009A373D /* Photo+Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3C515D2B4D600587C01 /* Photo+Flickr.m */; };
@@ -81,8 +81,8 @@
 		E339B21315D4DFB6005D46E5 /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+Create.m"; sourceTree = "<group>"; };
 		E3E446B515D392640009E6BD /* VirtualVacationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualVacationTableViewController.h; sourceTree = "<group>"; };
 		E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualVacationTableViewController.m; sourceTree = "<group>"; };
-		E3F39BC015D3DA35009A373D /* TagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
-		E3F39BC115D3DA35009A373D /* TagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
+		E3F39BC015D3DA35009A373D /* VacationTagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VacationTagsTableViewController.h; sourceTree = "<group>"; };
+		E3F39BC115D3DA35009A373D /* VacationTagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationTagsTableViewController.m; sourceTree = "<group>"; };
 		FF209FCD15C43B4F00D88F6E /* RecentPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosTableViewController.h; sourceTree = "<group>"; };
 		FF209FCE15C43B4F00D88F6E /* RecentPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosTableViewController.m; sourceTree = "<group>"; };
 		FF2441F115CE73A300C762FE /* MapUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapUtilities.h; sourceTree = "<group>"; };
@@ -240,10 +240,10 @@
 				E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */,
 				FFFF718515D29B6A00696F1A /* VacationPlacesTableViewController.h */,
 				FFFF718615D29B6A00696F1A /* VacationPlacesTableViewController.m */,
+				E3F39BC015D3DA35009A373D /* VacationTagsTableViewController.h */,
+				E3F39BC115D3DA35009A373D /* VacationTagsTableViewController.m */,
 				FF75F1E615D41751004D5B1D /* VacationPhotosTableViewController.h */,
 				FF75F1E715D41751004D5B1D /* VacationPhotosTableViewController.m */,
-				E3F39BC015D3DA35009A373D /* TagsTableViewController.h */,
-				E3F39BC115D3DA35009A373D /* TagsTableViewController.m */,
 				FF6975D915C3D9B600E3D45E /* PhotoViewController.h */,
 				FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */,
 				FF4B5ABA15C2F36600217AA2 /* PlacesTableViewController.h */,
@@ -480,7 +480,7 @@
 				FF92B3ED15D2D18600587C01 /* VacationHelper.m in Sources */,
 				FFF7B02A15D36B4F00AF9442 /* VirtualVacationsTableViewController.m in Sources */,
 				E3E446B715D392640009E6BD /* VirtualVacationTableViewController.m in Sources */,
-				E3F39BC215D3DA35009A373D /* TagsTableViewController.m in Sources */,
+				E3F39BC215D3DA35009A373D /* VacationTagsTableViewController.m in Sources */,
 				FF75F1E415D4153B004D5B1D /* Place.m in Sources */,
 				FF75F1E815D41751004D5B1D /* VacationPhotosTableViewController.m in Sources */,
 				E339B21415D4DFB6005D46E5 /* Tag+Create.m in Sources */,

@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 Heiko Goes. All rights reserved.
 //
 
-#import "TagsTableViewController.h"
+#import "VacationTagsTableViewController.h"
 #import "VacationHelper.h"
 #import "Photo.h"
 #import "Tag.h"
 
-@interface TagsTableViewController ()
+@interface VacationTagsTableViewController ()
 
 @property (nonatomic, strong) UIManagedDocument *vacationDatabase;
 
 @end
 
-@implementation TagsTableViewController
+@implementation VacationTagsTableViewController
 
 @synthesize vacationName = _vacationName, vacationDatabase = _vacationDatabase;
 
@@ -28,11 +28,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"TagsTableViewCell";
+    static NSString *CellIdentifier = @"VacationTagsTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = tag.content;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [tag.photos count]];
     
     return cell;
 }

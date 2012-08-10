@@ -10,7 +10,7 @@
 #import "CoreDataTableViewController.h"
 #import "Place.h"
 
-@interface TagsTableViewController : CoreDataTableViewController
+@interface VacationTagsTableViewController : CoreDataTableViewController
 
 @property (nonatomic, strong) NSString *vacationName;
 
