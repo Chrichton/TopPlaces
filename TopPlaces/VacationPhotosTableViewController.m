@@ -41,8 +41,7 @@
         Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         PhotoViewController *controller = segue.destinationViewController;
-//        controller.imageURL = photo.imageURL;
-//        controller.imageName = photo.title;
+        controller.photo = [PhotoDefintion createWithPhoto:photo];
     }
 }
 
