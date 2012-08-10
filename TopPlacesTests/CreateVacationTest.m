@@ -23,7 +23,7 @@
         photo.unique = @"id1";
         photo.title = @"title1";
         photo.subtitle = @"subtitle1";
-        photo.imageURL = @"url1";
+        photo.imageURL = @"http://farm8.static.flickr.com/7137/7755492244_15755667c0_b.jpg";
         photo.place = place;
         
         Tag *tag1 =[Tag tagWithContent:@"tag1" inManagedObjectContext:vacation.managedObjectContext];
@@ -37,7 +37,7 @@
         photo.unique = @"id2";
         photo.title = @"title2";
         photo.subtitle = @"subtitle2";
-        photo.imageURL = @"url2";
+        photo.imageURL = @"http://farm9.static.flickr.com/8434/7755388594_cceb2cc3ce_b.jpg";
         photo.place = place;
         [photo addTagsObject:tag2];
 
