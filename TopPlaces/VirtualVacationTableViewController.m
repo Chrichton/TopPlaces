@@ -8,6 +8,7 @@
 
 #import "VirtualVacationTableViewController.h"
 #import "VacationPlacesTableViewController.h"
+#import "TagsTableViewController.h"
 
 @interface VirtualVacationTableViewController ()
 
@@ -28,8 +29,11 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"VitualVacationToVacationPlaces"]) {
+    if ([segue.identifier isEqualToString:@"VirtualVacationToVacationPlaces"]) {
         VacationPlacesTableViewController *controller = segue.destinationViewController;
+        controller.vacationName = self.title;
+    } else if ([segue.identifier isEqualToString:@"VirtualVacationToTags"]) {
+        TagsTableViewController *controller = segue.destinationViewController;
         controller.vacationName = self.title;
     }
 }

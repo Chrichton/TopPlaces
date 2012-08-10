@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
+#import "Place.h"
 
-@interface TagsTableViewController : UITableViewController
+@interface TagsTableViewController : CoreDataTableViewController
+
+@property (nonatomic, strong) NSString *vacationName;
 
 @end

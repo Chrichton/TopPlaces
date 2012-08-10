@@ -16,8 +16,7 @@
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
     request.predicate = [NSPredicate predicateWithFormat:@"content = %@", content];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"content" ascending:YES];
-    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    request.sortDescriptors = [NSArray array];
     
     NSError *error = nil;
     NSArray *tags = [context executeFetchRequest:request error:&error];
