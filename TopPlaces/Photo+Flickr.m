@@ -28,7 +28,7 @@
         // handle error
     } else if ([matches count] == 0) {
         photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
-        photo.id = [flickrData objectForKey:FLICKR_PHOTO_ID];
+        photo.unique = [flickrData objectForKey:FLICKR_PHOTO_ID];
         photo.title = [flickrData objectForKey:FLICKR_PHOTO_TITLE];
         photo.subtitle = [flickrData valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
         photo.imageURL = [[FlickrFetcher urlForPhoto:flickrData format:FlickrPhotoFormatLarge] absoluteString];

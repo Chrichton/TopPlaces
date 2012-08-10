@@ -2,7 +2,7 @@
 //  Photo.m
 //  TopPlaces
 //
-//  Created by Heiko Goes on 08.08.12.
+//  Created by cp on 10.08.12.
 //  Copyright (c) 2012 Heiko Goes. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @implementation Photo
 
-@dynamic id;
+@dynamic unique;
+@dynamic imageURL;
 @dynamic subtitle;
 @dynamic title;
-@dynamic imageURL;
 @dynamic place;
 @dynamic tags;
 

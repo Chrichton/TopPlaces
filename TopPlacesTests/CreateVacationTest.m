@@ -20,23 +20,30 @@
     [VacationHelper openVacation:@"Default Vacation Database" usingBlock:^(UIManagedDocument *vacation) {
         Place *place = [Place placeWithName:@"place1" inManagedObjectContext:vacation.managedObjectContext];
         Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:vacation.managedObjectContext];
-        photo.id = @"id1";
+        photo.unique = @"id1";
         photo.title = @"title1";
         photo.subtitle = @"subtitle1";
         photo.imageURL = @"url1";
         photo.place = place;
-        [photo addTagsObject:[Tag tagWithContent:@"tag1" inManagedObjectContext:vacation.managedObjectContext]];
-        [photo addTagsObject:[Tag tagWithContent:@"tag2" inManagedObjectContext:vacation.managedObjectContext]];
+        
+        Tag *tag1 =[Tag tagWithContent:@"tag1" inManagedObjectContext:vacation.managedObjectContext];
+        [photo addTagsObject:tag1];
+        
+        Tag *tag2 =[Tag tagWithContent:@"tag2" inManagedObjectContext:vacation.managedObjectContext];
+        [photo addTagsObject:tag2];
         
         place = [Place placeWithName:@"place2" inManagedObjectContext:vacation.managedObjectContext];
         photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:vacation.managedObjectContext];
-        photo.id = @"id2";
+        photo.unique = @"id2";
         photo.title = @"title2";
         photo.subtitle = @"subtitle2";
         photo.imageURL = @"url2";
         photo.place = place;
-        [photo addTagsObject:[Tag tagWithContent:@"tag2" inManagedObjectContext:vacation.managedObjectContext]];
+        [photo addTagsObject:tag2];
 
+        tag1.numberOfPhotos = @1;
+        tag2.numberOfPhotos = @2;
+        
         [vacation saveToURL:vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
             finished = YES;
         }];

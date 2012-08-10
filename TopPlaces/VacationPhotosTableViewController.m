@@ -8,6 +8,8 @@
 
 #import "VacationPhotosTableViewController.h"
 #import "Photo.h"
+#import "PhotoViewController.h"
+#import "FlickrFetcher.h"
 
 @interface VacationPhotosTableViewController ()
 
@@ -31,6 +33,17 @@
     cell.detailTextLabel.text = photo.subtitle;
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"VacationPhotosToPhoto"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        PhotoViewController *controller = segue.destinationViewController;
+//        controller.imageURL = photo.imageURL;
+//        controller.imageName = photo.title;
+    }
 }
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController

@@ -51,8 +51,10 @@
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"content" ascending:YES selector: @selector(localizedCaseInsensitiveCompare:)];
-    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    NSSortDescriptor *sortDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"numberOfPhotos" ascending:NO];
+    NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"content" ascending:YES selector: @selector(localizedCaseInsensitiveCompare:)];
+    request.sortDescriptors = [NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.vacationDatabase.managedObjectContext
