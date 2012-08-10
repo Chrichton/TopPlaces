@@ -30,12 +30,13 @@
 
 - (void) reloadPhoto {
     FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:self.photo];
-    self.photoDescription.title = flickrPhoto.title;
     UIBarButtonItem *rightBarButtonItem = self.navigationItem.rightBarButtonItem;
     
-    if (self.splitViewController)
+    if (self.splitViewController) {
+        self.photoDescription.title = flickrPhoto.title;
         [self.activityIndicator startAnimating];
-    else {
+    } else {
+        self.title = flickrPhoto.title;
         UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [spinner startAnimating];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
