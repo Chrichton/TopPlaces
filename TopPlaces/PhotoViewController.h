@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotoDefintion.h"
+#import "CommonPhotoViewController.h"
 
-@interface PhotoViewController : UIViewController<UIScrollViewDelegate, UISplitViewControllerDelegate>
+@interface PhotoViewController : CommonPhotoViewController
 
-@property (nonatomic, strong) PhotoDefintion *photo;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end

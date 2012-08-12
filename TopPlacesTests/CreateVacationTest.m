@@ -17,7 +17,7 @@
 - (void)testCreateDefaultVacation {
     BOOL __block finished = NO;
     
-    [VacationHelper openVacation:@"Default Vacation Database" usingBlock:^(UIManagedDocument *vacation) {
+    [VacationHelper openVacation:@"My Vacation" usingBlock:^(UIManagedDocument *vacation) {
         Place *place = [Place placeWithName:@"place1" inManagedObjectContext:vacation.managedObjectContext];
         Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:vacation.managedObjectContext];
         photo.unique = @"id1";

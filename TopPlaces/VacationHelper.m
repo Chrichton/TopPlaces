@@ -7,6 +7,9 @@
 //
 
 #import "VacationHelper.h"
+#import <CoreData/CoreData.h>
+#import "Photo+PhotoDefinition.h"
+#import "Place+Create.h"
 
 @implementation VacationHelper
 
@@ -29,7 +32,7 @@
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[vacationDatabase.fileURL path]]) {
         [vacationDatabase saveToURL:vacationDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-        completionBlock(vacationDatabase);
+            completionBlock(vacationDatabase);
         }];
     } else if (vacationDatabase.documentState == UIDocumentStateClosed) {
         [vacationDatabase openWithCompletionHandler:^(BOOL success) {
@@ -38,6 +41,34 @@
     } else if (vacationDatabase.documentState == UIDocumentStateNormal) {
         completionBlock(vacationDatabase);
     }
+}
+
++ (void)isPhotoWithId: (NSString *)photoId inVacationWithName: (NSString *)vacationName usingBlock:(check_block_t)checkBlock {
+    [self openVacation:vacationName usingBlock:^(UIManagedDocument *vacation) {
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+        request.predicate = [NSPredicate predicateWithFormat:@"unique =%@", photoId];
+        
+        NSError *error;
+        Photo *photo = [[vacation.managedObjectContext executeFetchRequest:request error:&error] lastObject];
+        checkBlock(photo != nil);
+    }];
+}
+
++ (void)visitPhoto: (PhotoDefintion *)photoDefinition inVacationWithName: (NSString *)vacationName {
+    [self openVacation:vacationName usingBlock:^(UIManagedDocument *vacation) {
+        Photo *photo = [Photo photoWithPhotoDefinition:photoDefinition inManagedObjectContext:vacation.managedObjectContext];
+        Place *place = [Place placeWithName:photoDefinition.placeName inManagedObjectContext:vacation.managedObjectContext];
+        photo.place = place;
+        [vacation saveToURL:vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+    }];
+}
+
++ (void)unVisitPhoto: (PhotoDefintion *)photoDefinition inVacationWithName: (NSString *)vacationName{
+    [self openVacation:vacationName usingBlock:^(UIManagedDocument *vacation) {
+        Photo *photo = [Photo photoWithPhotoDefinition:photoDefinition inManagedObjectContext:vacation.managedObjectContext];
+        [vacation.managedObjectContext deleteObject:photo];
+        [vacation saveToURL:vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+    }];
 }
 
 @end

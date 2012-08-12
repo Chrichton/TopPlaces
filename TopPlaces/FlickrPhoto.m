@@ -11,13 +11,14 @@
 
 @implementation FlickrPhoto
 
-@synthesize photoId = _photoId, title = _title, description = _description;
+@synthesize photoId = _photoId, title = _title, description = _description, placeName = _placeName;
 
 - (FlickrPhoto *) initWithPhoto: (NSDictionary *)photo {
     self = [super init];
     if (self) {
         _photoId = [photo valueForKey:FLICKR_PHOTO_ID];
         _description = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+        _placeName = [photo valueForKeyPath:FLICKR_PHOTO_PLACE_NAME];
         
         _title = [photo valueForKey:@"title"];
         if (_title.length == 0) {

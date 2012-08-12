@@ -45,6 +45,7 @@
 		FF4E6FD415CBCCA600E745C0 /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4E6FD215CBCCA600E745C0 /* FileCache.m */; };
 		FF51D7E815C74BD900F1E301 /* TopPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF51D7E715C74BD900F1E301 /* TopPhotosTableViewController.m */; };
 		FF51D80415C75E5000F1E301 /* FlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FF51D80315C75E5000F1E301 /* FlickrPhoto.m */; };
+		FF55A62015D701FF00A7A573 /* CommonPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF55A61F15D701FF00A7A573 /* CommonPhotoViewController.m */; };
 		FF5C92BE15C9B5EF0090AB4F /* PlacesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5C92BD15C9B5EF0090AB4F /* PlacesMapViewController.m */; };
 		FF5C92C015C9B72E0090AB4F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5C92BF15C9B72E0090AB4F /* MapKit.framework */; };
 		FF5C92C215C9B73B0090AB4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5C92C115C9B73B0090AB4F /* CoreLocation.framework */; };
@@ -58,6 +59,7 @@
 		FF92B3D915D2CD7200587C01 /* Place+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3D815D2CD7200587C01 /* Place+Create.m */; };
 		FF92B3DE15D2CFD900587C01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF92B3DD15D2CFD900587C01 /* CoreData.framework */; };
 		FF92B3ED15D2D18600587C01 /* VacationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3EC15D2D18600587C01 /* VacationHelper.m */; };
+		FFAE08E915D780480075D8C5 /* Photo+PhotoDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE08E815D780480075D8C5 /* Photo+PhotoDefinition.m */; };
 		FFC8B58815C53B900049228F /* FlickrPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC8B58715C53B900049228F /* FlickrPlace.m */; };
 		FFF7B02515D368E300AF9442 /* CreateVacationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF7B02415D368E300AF9442 /* CreateVacationTest.m */; };
 		FFF7B02715D3695800AF9442 /* VacationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3EC15D2D18600587C01 /* VacationHelper.m */; };
@@ -127,6 +129,8 @@
 		FF51D7E715C74BD900F1E301 /* TopPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPhotosTableViewController.m; sourceTree = "<group>"; };
 		FF51D80215C75E5000F1E301 /* FlickrPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhoto.h; sourceTree = "<group>"; };
 		FF51D80315C75E5000F1E301 /* FlickrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhoto.m; sourceTree = "<group>"; };
+		FF55A61D15D701CA00A7A573 /* CommonPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonPhotoViewController.h; sourceTree = "<group>"; };
+		FF55A61F15D701FF00A7A573 /* CommonPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonPhotoViewController.m; sourceTree = "<group>"; };
 		FF5C92BC15C9B5EF0090AB4F /* PlacesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesMapViewController.h; sourceTree = "<group>"; };
 		FF5C92BD15C9B5EF0090AB4F /* PlacesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesMapViewController.m; sourceTree = "<group>"; };
 		FF5C92BF15C9B72E0090AB4F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -149,6 +153,8 @@
 		FF92B3DD15D2CFD900587C01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FF92B3EB15D2D18600587C01 /* VacationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VacationHelper.h; sourceTree = "<group>"; };
 		FF92B3EC15D2D18600587C01 /* VacationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationHelper.m; sourceTree = "<group>"; };
+		FFAE08E715D780480075D8C5 /* Photo+PhotoDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+PhotoDefinition.h"; sourceTree = "<group>"; };
+		FFAE08E815D780480075D8C5 /* Photo+PhotoDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+PhotoDefinition.m"; sourceTree = "<group>"; };
 		FFC8B58615C53B900049228F /* FlickrPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPlace.h; sourceTree = "<group>"; };
 		FFC8B58715C53B900049228F /* FlickrPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPlace.m; sourceTree = "<group>"; };
 		FFF7B02315D368E300AF9442 /* CreateVacationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateVacationTest.h; sourceTree = "<group>"; };
@@ -248,6 +254,8 @@
 				E3F39BC115D3DA35009A373D /* VacationTagsTableViewController.m */,
 				FF75F1E615D41751004D5B1D /* VacationPhotosTableViewController.h */,
 				FF75F1E715D41751004D5B1D /* VacationPhotosTableViewController.m */,
+				FF55A61D15D701CA00A7A573 /* CommonPhotoViewController.h */,
+				FF55A61F15D701FF00A7A573 /* CommonPhotoViewController.m */,
 				FF6975D915C3D9B600E3D45E /* PhotoViewController.h */,
 				FF6975DA15C3D9B600E3D45E /* PhotoViewController.m */,
 				FF4B5ABA15C2F36600217AA2 /* PlacesTableViewController.h */,
@@ -345,6 +353,8 @@
 				FF92B3D815D2CD7200587C01 /* Place+Create.m */,
 				E339B21215D4DFB6005D46E5 /* Tag+Create.h */,
 				E339B21315D4DFB6005D46E5 /* Tag+Create.m */,
+				FFAE08E715D780480075D8C5 /* Photo+PhotoDefinition.h */,
+				FFAE08E815D780480075D8C5 /* Photo+PhotoDefinition.m */,
 			);
 			name = "Core-Data";
 			sourceTree = "<group>";
@@ -489,6 +499,8 @@
 				E339B21415D4DFB6005D46E5 /* Tag+Create.m in Sources */,
 				E339B22D15D4F482005D46E5 /* Tag.m in Sources */,
 				FF4BE26915D5B38400E231DA /* PhotoDefintion.m in Sources */,
+				FF55A62015D701FF00A7A573 /* CommonPhotoViewController.m in Sources */,
+				FFAE08E915D780480075D8C5 /* Photo+PhotoDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

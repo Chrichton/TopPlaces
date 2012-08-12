@@ -475,15 +475,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wxt-UK-rI1"/>
+                    <navigationItem key="navigationItem" id="wxt-UK-rI1">
+                        <barButtonItem key="rightBarButtonItem" title="Visit" id="iWU-4Z-3OX">
+                            <connections>
+                                <action selector="visitButtonClicked:" destination="Bsg-FT-AKt" id="hdW-QB-FrH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="photoImageView" destination="DfM-fh-MZ6" id="45I-vy-UxL"/>
                         <outlet property="scrollView" destination="9Va-VT-cyi" id="vas-tE-umN"/>
+                        <outlet property="visitButton" destination="iWU-4Z-3OX" id="IfR-88-6px"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-2800" y="334"/>
+            <point key="canvasLocation" x="-2830" y="270"/>
         </scene>
         <!--Places Table View Controller - Places-->
         <scene sceneID="3hq-j1-yGr">
@@ -587,6 +594,62 @@
             <point key="canvasLocation" x="-4983" y="334"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="PhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="visitButtonClicked:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="photoDescription" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="visitButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="PhotosMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="PhotosTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosTableViewController.h"/>
+        </class>
+        <class className="PlacesMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="PlacesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
+        </class>
+        <class className="RecentPhotosTableViewController" superclassName="PhotosTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosTableViewController.h"/>
+        </class>
+        <class className="TopPhotosTableViewController" superclassName="PhotosTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPhotosTableViewController.h"/>
+        </class>
+        <class className="VacationPhotosTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationPhotosTableViewController.h"/>
+        </class>
+        <class className="VacationPlacesTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationPlacesTableViewController.h"/>
+        </class>
+        <class className="VacationTagsTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationTagsTableViewController.h"/>
+        </class>
+        <class className="VirtualVacationTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VirtualVacationTableViewController.h"/>
+        </class>
+        <class className="VirtualVacationsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VirtualVacationsTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

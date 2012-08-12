@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PhotoDefintion.h"
 
 typedef void (^completion_block_t)(UIManagedDocument *vacation);
+typedef void (^check_block_t)(BOOL checkResult);
 
 @interface VacationHelper : NSObject
 
@@ -16,5 +18,11 @@ typedef void (^completion_block_t)(UIManagedDocument *vacation);
 
 + (void)openVacation:(NSString *)vacationName
           usingBlock:(completion_block_t)completionBlock;
+
++ (void)isPhotoWithId: (NSString *)photoId inVacationWithName: (NSString *)vacationName usingBlock:(check_block_t)checkBlock;
+
++ (void)visitPhoto: (PhotoDefintion *)photoDefinition inVacationWithName: (NSString *)vacationName;
+
++ (void)unVisitPhoto: (PhotoDefintion *)photoDefinition inVacationWithName: (NSString *)vacationName;
 
 @end
