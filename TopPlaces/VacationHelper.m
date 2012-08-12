@@ -65,7 +65,13 @@
 
 + (void)unVisitPhoto: (PhotoDefintion *)photoDefinition inVacation: (UIManagedDocument *)vacation {
     Photo *photo = [Photo photoWithPhotoDefinition:photoDefinition inManagedObjectContext:vacation.managedObjectContext];
+    Place *place = photo.place;
+    [place removePhotosObject:photo];
     [vacation.managedObjectContext deleteObject:photo];
+
+    if ([place.photos count] == 0)
+        [vacation.managedObjectContext deleteObject:place];
+    
     [vacation saveToURL:vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
 }
 
