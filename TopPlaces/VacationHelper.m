@@ -63,11 +63,15 @@
     }];
 }
 
++ (void)unVisitPhoto: (PhotoDefintion *)photoDefinition inVacation: (UIManagedDocument *)vacation {
+    Photo *photo = [Photo photoWithPhotoDefinition:photoDefinition inManagedObjectContext:vacation.managedObjectContext];
+    [vacation.managedObjectContext deleteObject:photo];
+    [vacation saveToURL:vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+}
+
 + (void)unVisitPhoto: (PhotoDefintion *)photoDefinition inVacationWithName: (NSString *)vacationName{
     [self openVacation:vacationName usingBlock:^(UIManagedDocument *vacation) {
-        Photo *photo = [Photo photoWithPhotoDefinition:photoDefinition inManagedObjectContext:vacation.managedObjectContext];
-        [vacation.managedObjectContext deleteObject:photo];
-        [vacation saveToURL:vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+        [self unVisitPhoto:photoDefinition inVacation:vacation];
     }];
 }
 

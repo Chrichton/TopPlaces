@@ -8,16 +8,16 @@
 
 #import "VacationPhotosTableViewController.h"
 #import "Photo.h"
-#import "PhotoViewController.h"
+#import "VacationPhotoViewController.h"
 #import "FlickrFetcher.h"
 
 @interface VacationPhotosTableViewController ()
 
 @end
-
+ 
 @implementation VacationPhotosTableViewController
 
-@synthesize photos = _photos;
+@synthesize photos = _photos, vacationDatabase = _vacationDatabase;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -36,11 +36,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"VacationPhotosToPhoto"]) {
+    if ([segue.identifier isEqualToString:@"VacationPhotosToVacationhoto"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
-        PhotoViewController *controller = segue.destinationViewController;
+        VacationPhotoViewController *controller = segue.destinationViewController;
+        controller.vacationDatabase = self.vacationDatabase;
         controller.photo = [PhotoDefintion createWithPhoto:photo];
     }
 }

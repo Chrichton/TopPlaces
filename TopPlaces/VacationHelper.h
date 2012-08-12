@@ -25,4 +25,6 @@ typedef void (^check_block_t)(BOOL checkResult);
 
 + (void)unVisitPhoto: (PhotoDefintion *)photoDefinition inVacationWithName: (NSString *)vacationName;
 
++ (void)unVisitPhoto: (PhotoDefintion *)photoDefinition inVacation: (UIManagedDocument *)vacation;
+
 @end

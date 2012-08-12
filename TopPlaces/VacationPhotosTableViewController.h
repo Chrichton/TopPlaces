@@ -12,6 +12,7 @@
 
 @interface VacationPhotosTableViewController : CoreDataTableViewController
 
+@property (nonatomic, strong) UIManagedDocument *vacationDatabase;
 @property (nonatomic, strong) NSArray *photos;
 
 @end
