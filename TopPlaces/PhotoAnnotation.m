@@ -7,8 +7,8 @@
 //
 
 #import "PhotoAnnotation.h"
-#import "FlickrPhoto.h"
 #import "FlickrFetcher.h"
+#import "PhotoDefintion.h"
 
 @interface PhotoAnnotation()
 
@@ -43,9 +43,8 @@
 }
 
 - (void)setPhoto:(NSDictionary *)photo {
-    FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:photo];
-    _theTitle = flickrPhoto.title;
     
+    _theTitle = [PhotoDefintion createWithFlickrPhoto:photo].title;    
     _photo = photo;
 }
 

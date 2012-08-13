@@ -15,11 +15,12 @@ typedef NSURL *(^ImageUrlBlockType)();
 
 @property (nonatomic, readonly) NSString *photoId;
 @property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSString *subtitle;
 @property (nonatomic, readonly) ImageUrlBlockType imageURL;
 @property (nonatomic, readonly) NSString *placeName;
 @property (nonatomic, readonly) NSSet *tags;
 
-- (PhotoDefintion *)initWithId: (NSString *)photoId title:(NSString *)title placeName:(NSString *)placeName tags:(NSSet *)tags urlBlock: (ImageUrlBlockType) imageURL;
+- (PhotoDefintion *)initWithId: (NSString *)photoId title:(NSString *)title subtitle:(NSString *)subtitle placeName:(NSString *)placeName tags:(NSSet *)tags urlBlock: (ImageUrlBlockType) imageURL;
 
 + (PhotoDefintion *)createWithFlickrPhoto: (NSDictionary *) photo;
 + (PhotoDefintion *)createWithPhoto: (Photo *) photo;

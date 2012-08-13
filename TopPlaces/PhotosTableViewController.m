@@ -81,10 +81,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-    FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto:photo];
+    PhotoDefintion *photoDefinition = [PhotoDefintion createWithFlickrPhoto:photo];
     
-    cell.textLabel.text = flickrPhoto.title;
-    cell.detailTextLabel.text = flickrPhoto.description;;
+    cell.textLabel.text = photoDefinition.title;
+    cell.detailTextLabel.text = photoDefinition.description;;
 
     return cell;
 }

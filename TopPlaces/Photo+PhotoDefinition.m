@@ -27,7 +27,7 @@
         photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
         photo.unique = photoDefinition.photoId;
         photo.title = photoDefinition.title;
-//        photo.subtitle = [flickrData valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+        photo.subtitle = photoDefinition.subtitle;
         photo.imageURL = [photoDefinition.imageURL() path];
         
         for (NSString *tagContent in photoDefinition.tags) {

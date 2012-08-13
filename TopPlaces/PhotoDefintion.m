@@ -13,13 +13,14 @@
 
 @implementation PhotoDefintion
 
-@synthesize photoId = _photoId, title = _title, imageURL = _imageURL, placeName = _placeName, tags = _tags;
+@synthesize photoId = _photoId, title = _title, subtitle = _subtitle, imageURL = _imageURL, placeName = _placeName, tags = _tags;
 
-- (PhotoDefintion *)initWithId: (NSString *)photoId title:(NSString *)title placeName:(NSString *)placeName tags:(NSSet *)tags urlBlock: (ImageUrlBlockType) imageURL {
+- (PhotoDefintion *)initWithId: (NSString *)photoId title:(NSString *)title subtitle:(NSString *)subtitle placeName:(NSString *)placeName tags:(NSSet *)tags urlBlock: (ImageUrlBlockType) imageURL {
     self = [super init];
     if (self) {
         _photoId = photoId;
         _title = title;
+        _subtitle = subtitle;
         _imageURL = imageURL;
         _placeName = placeName;
         _tags = tags;
@@ -50,13 +51,13 @@
         }
     }
     
-    return [[PhotoDefintion alloc] initWithId:flickrPhoto.photoId title:flickrPhoto.title placeName: flickrPhoto.placeName tags: tags urlBlock:^{
+    return [[PhotoDefintion alloc] initWithId:flickrPhoto.photoId title:flickrPhoto.title subtitle: flickrPhoto.description placeName: flickrPhoto.placeName tags: tags urlBlock:^{
         return [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
     }];
 }
 
 + (PhotoDefintion *)createWithPhoto: (Photo *) photo {
-    return [[PhotoDefintion alloc] initWithId:photo.unique title:photo.title placeName:photo.place.name tags: photo.tags urlBlock:^{
+    return [[PhotoDefintion alloc] initWithId:photo.unique title:photo.title subtitle: photo.subtitle placeName:photo.place.name tags: photo.tags urlBlock:^{
        return [NSURL URLWithString: photo.imageURL];
    }];
 }
