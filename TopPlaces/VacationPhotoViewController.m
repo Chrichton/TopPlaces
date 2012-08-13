@@ -19,7 +19,8 @@
 
 - (IBAction)unVisitClicked:(id)sender {
     [VacationHelper unVisitPhoto:self.photo inVacation:self.vacationDatabase];
-//    [self presentingViewController ]
+    self.photo = nil;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
