@@ -28,7 +28,7 @@
         photo.unique = photoDefinition.photoId;
         photo.title = photoDefinition.title;
         photo.subtitle = photoDefinition.subtitle;
-        photo.imageURL = [photoDefinition.imageURL() path];
+        photo.imageURL = [photoDefinition.imageURL() absoluteString];
         
         for (NSString *tagContent in photoDefinition.tags) {
             Tag *tag = [Tag tagWithContent:tagContent inManagedObjectContext:context];
