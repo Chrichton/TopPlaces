@@ -27,7 +27,11 @@
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("top photos queue", NULL);
     dispatch_async(downloadQueue, ^{
-        NSArray *photos = [FlickrFetcher photosInPlace:self.place maxResults:50];
+        NSArray *photos = [[FlickrFetcher photosInPlace:self.place maxResults:50] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            NSDictionary *photo1 = obj1;
+            NSDictionary *photo2 = obj2;
+            return [[photo1 objectForKey:FLICKR_PHOTO_TITLE] compare:[photo2 objectForKey:FLICKR_PHOTO_TITLE] options:NSCaseInsensitiveSearch];
+        }];
         dispatch_async(dispatch_get_main_queue(), ^ {
             self.navigationItem.rightBarButtonItem = rightBarButtonItem;
             self.photos = photos;});
