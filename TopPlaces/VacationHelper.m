@@ -69,9 +69,7 @@
     Place *place = photo.place;
     [place removePhotosObject:photo];
     
-    NSArray *photoTags =  [photo.tags allObjects];
-    for (int i = 0; i< [photoTags count]; i++) {
-        Tag *tag = [photoTags objectAtIndex:i];
+    for (Tag *tag in [photo.tags allObjects]) { // allObjects ist wichtig, da das photo nicht direkt geändert werden dürfen 
         tag.numberOfPhotos = [NSNumber numberWithInt:[tag.numberOfPhotos intValue] - 1];
         [photo removeTagsObject:tag];
         
