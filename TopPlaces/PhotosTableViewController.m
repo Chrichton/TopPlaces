@@ -84,7 +84,7 @@
     PhotoDefintion *photoDefinition = [PhotoDefintion createWithFlickrPhoto:photo];
     
     cell.textLabel.text = photoDefinition.title;
-    cell.detailTextLabel.text = photoDefinition.description;;
+    cell.detailTextLabel.text = photoDefinition.subtitle;
 
     return cell;
 }
