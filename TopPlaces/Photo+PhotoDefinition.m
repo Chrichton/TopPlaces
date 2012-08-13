@@ -33,6 +33,7 @@
         for (NSString *tagContent in photoDefinition.tags) {
             Tag *tag = [Tag tagWithContent:tagContent inManagedObjectContext:context];
             [photo addTagsObject:tag];
+            tag.numberOfPhotos = [NSNumber numberWithInt:[tag.numberOfPhotos intValue] + 1];
         }
         
     } else {
