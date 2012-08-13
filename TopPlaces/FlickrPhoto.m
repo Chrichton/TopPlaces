@@ -17,15 +17,15 @@
     self = [super init];
     if (self) {
         _photoId = [photo valueForKey:FLICKR_PHOTO_ID];
-        _description = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-        _placeName = [photo valueForKeyPath:FLICKR_PHOTO_PLACE_NAME];
+        _description = [[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _placeName = [[photo valueForKeyPath:FLICKR_PHOTO_PLACE_NAME] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
-        _title = [photo valueForKey:@"title"];
+        _title = [[photo valueForKey:@"title"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if (_title.length == 0) {
             if (_description.length > 0)
                 _title = _description;
             else
-                _title = NSLocalizedString(@"unknown", @"unknown");
+                _title = self.placeName;
         }
     }
     
