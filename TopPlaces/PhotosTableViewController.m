@@ -89,15 +89,19 @@
     return cell;
 }
 
+- (void)setPhotoViewController: (PhotoViewController *)photoController withIndexPath: (NSIndexPath *)indexPath {
+    NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
+    photoController.photo = [PhotoDefintion createWithFlickrPhoto:photo];
+    [RecentPhotosTableViewController addPhoto:photo];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PhotoSegue"]) {
         PhotoViewController *photoController = segue.destinationViewController;
         
         UITableViewCell * cell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        photoController.photo = [PhotoDefintion createWithFlickrPhoto:photo];
-        [RecentPhotosTableViewController addPhoto:photo];
+        [self setPhotoViewController:photoController withIndexPath:indexPath];
     } else if ([segue.identifier isEqualToString:@"PhotosToMapSegue"]) {
         PhotosMapViewController *mapViewContoller = segue.destinationViewController;
         NSMutableArray *annotations = [NSMutableArray array];
@@ -112,9 +116,7 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.splitViewController) {
         PhotoViewController *photoController = self.splitViewController.viewControllers.lastObject;
-        NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        photoController.photo = [PhotoDefintion createWithFlickrPhoto:photo];
-        [RecentPhotosTableViewController addPhoto:photo];
+        [self setPhotoViewController:photoController withIndexPath:indexPath];
     }
 }
 
