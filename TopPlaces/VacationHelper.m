@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Photo+PhotoDefinition.h"
 #import "Place+Create.h"
+#import "Tag.h"
 
 @implementation VacationHelper
 
@@ -67,7 +68,17 @@
     Photo *photo = [Photo photoWithPhotoDefinition:photoDefinition inManagedObjectContext:vacation.managedObjectContext];
     Place *place = photo.place;
     [place removePhotosObject:photo];
-    [vacation.managedObjectContext deleteObject:photo];
+    
+    for (Tag *tag in photo.tags) {
+        tag.numberOfPhotos = [NSNumber numberWithInt:[tag.numberOfPhotos intValue] - 1];
+        [photo removeTagsObject:tag];
+        
+        if ([tag.numberOfPhotos intValue] == 0) {
+            [vacation.managedObjectContext deleteObject:tag];
+        }
+    }
+    
+    [vacation.managedObjectContext deleteObject:photo]; 
 
     if ([place.photos count] == 0)
         [vacation.managedObjectContext deleteObject:place];
