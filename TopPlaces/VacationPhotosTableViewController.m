@@ -50,7 +50,8 @@
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
     request.predicate = [NSPredicate predicateWithFormat:@"%@ CONTAINS self", self.photos];
-    request.sortDescriptors = [NSArray array];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:((Photo *)[self.photos lastObject]).managedObjectContext

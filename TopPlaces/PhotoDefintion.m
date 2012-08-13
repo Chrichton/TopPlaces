@@ -22,6 +22,7 @@
         _title = title;
         _imageURL = imageURL;
         _placeName = placeName;
+        _tags = tags;
     }
     
     return self;

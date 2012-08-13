@@ -7,6 +7,7 @@
 //
 
 #import "Photo+PhotoDefinition.h"
+#import "Tag+Create.h"
 
 @implementation Photo (PhotoDefinition)
 
@@ -28,6 +29,12 @@
         photo.title = photoDefinition.title;
 //        photo.subtitle = [flickrData valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
         photo.imageURL = [photoDefinition.imageURL() path];
+        
+        for (NSString *tagContent in photoDefinition.tags) {
+            Tag *tag = [Tag tagWithContent:tagContent inManagedObjectContext:context];
+            [photo addTagsObject:tag];
+        }
+        
     } else {
         photo = [matches lastObject];
     }
