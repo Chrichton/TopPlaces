@@ -7,7 +7,6 @@
 //
 
 #import "PhotoDefintion.h"
-#import "FlickrPhoto.h"
 #import "FlickrFetcher.h"
 #import "Place.h"
 
@@ -29,9 +28,7 @@
     return self;
 }
 
-+ (PhotoDefintion *)createWithFlickrPhoto: (NSDictionary *) photo {
-    FlickrPhoto *flickrPhoto = [[FlickrPhoto alloc] initWithPhoto: photo];
-    
++ (PhotoDefintion *)createWithFlickrPhoto: (NSDictionary *) photo {    
     NSArray *tagsArray = [[photo objectForKey:FLICKR_TAGS] componentsSeparatedByString:@" "];
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         NSString *tag = evaluatedObject;
@@ -51,7 +48,19 @@
         }
     }
     
-    return [[PhotoDefintion alloc] initWithId:flickrPhoto.photoId title:flickrPhoto.title subtitle: flickrPhoto.description placeName: flickrPhoto.placeName tags: tags urlBlock:^{
+    NSString *thePhotoId = [photo valueForKey:FLICKR_PHOTO_ID];
+    NSString *theDescription = [[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *thePlaceName = [[photo valueForKeyPath:FLICKR_PHOTO_PLACE_NAME] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSString *theTitle = [[photo valueForKey:@"title"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (theTitle.length == 0) {
+        if (theDescription.length > 0)
+            theTitle = theDescription;
+        else
+            theTitle = thePlaceName;
+    }
+
+    return [[PhotoDefintion alloc] initWithId:thePhotoId title:theTitle subtitle: theDescription placeName: thePlaceName tags: tags urlBlock:^{
         return [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
     }];
 }
