@@ -10,7 +10,6 @@
 #import "PhotoViewController.h"
 #import "FlickrFetcher.h"
 #import "RecentPhotosTableViewController.h"
-#import "FlickrPhoto.h"
 #import "PhotoAnnotation.h"
 #import <MapKit/MapKit.h>
 #import "FileCache.h"

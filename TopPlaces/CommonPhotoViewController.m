@@ -8,7 +8,6 @@
 
 #import "PhotoViewController.h"
 #import "FlickrFetcher.h"
-#import "FlickrPhoto.h"
 #import "FileCache.h"
 #import "VacationHelper.h"
 
