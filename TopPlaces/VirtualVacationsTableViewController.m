@@ -20,14 +20,15 @@
 
 @synthesize vacations = _vacations;
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
 
     NSError *error;
     _vacations = [[NSFileManager defaultManager]
                   contentsOfDirectoryAtURL:[VacationHelper rootURL]
                   includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsHiddenFiles error:&error];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidUnload

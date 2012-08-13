@@ -41,11 +41,13 @@
   
     NSMutableSet *tags = [[NSMutableSet alloc] init];
     for (NSString *tag  in tagsArray) {
-        NSString *firstChar = [tag substringToIndex:1];
-        NSString *upperCaseTag = [[firstChar uppercaseString] isEqualToString:firstChar] ?
+        if (tag.length > 0) {
+            NSString *firstChar = [tag substringToIndex:1];
+            NSString *upperCaseTag = [[firstChar uppercaseString] isEqualToString:firstChar] ?
             tag : [[firstChar uppercaseString] stringByAppendingString:[tag substringFromIndex:1]];
-
-        [tags addObject:upperCaseTag];
+            
+            [tags addObject:upperCaseTag];
+        }
     }
     
     return [[PhotoDefintion alloc] initWithId:flickrPhoto.photoId title:flickrPhoto.title placeName: flickrPhoto.placeName tags: tags urlBlock:^{
