@@ -10,6 +10,7 @@
 		E339B21415D4DFB6005D46E5 /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = E339B21315D4DFB6005D46E5 /* Tag+Create.m */; };
 		E339B21615D4E0DE005D46E5 /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = E339B21315D4DFB6005D46E5 /* Tag+Create.m */; };
 		E339B22D15D4F482005D46E5 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = E339B22C15D4F481005D46E5 /* Tag.m */; };
+		E39C6C3915DA25BC006EC68C /* BlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C6C3815DA25BC006EC68C /* BlockTest.m */; };
 		E3E446B715D392640009E6BD /* VirtualVacationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */; };
 		E3F39BC215D3DA35009A373D /* VacationTagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F39BC115D3DA35009A373D /* VacationTagsTableViewController.m */; };
 		E3F39BC415D3DF50009A373D /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF92B3D515D2CCD500587C01 /* Photo.m */; };
@@ -81,6 +82,8 @@
 		E339B21315D4DFB6005D46E5 /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+Create.m"; sourceTree = "<group>"; };
 		E339B22B15D4F481005D46E5 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		E339B22C15D4F481005D46E5 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		E39C6C3715DA25BC006EC68C /* BlockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockTest.h; sourceTree = "<group>"; };
+		E39C6C3815DA25BC006EC68C /* BlockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockTest.m; sourceTree = "<group>"; };
 		E3E446B515D392640009E6BD /* VirtualVacationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualVacationTableViewController.h; sourceTree = "<group>"; };
 		E3E446B615D392640009E6BD /* VirtualVacationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualVacationTableViewController.m; sourceTree = "<group>"; };
 		E3F39BC015D3DA35009A373D /* VacationTagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VacationTagsTableViewController.h; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 				FFF7B02315D368E300AF9442 /* CreateVacationTest.h */,
 				FFF7B02415D368E300AF9442 /* CreateVacationTest.m */,
 				FF4B5AA415C2EF9800217AA2 /* Supporting Files */,
+				E39C6C3715DA25BC006EC68C /* BlockTest.h */,
+				E39C6C3815DA25BC006EC68C /* BlockTest.m */,
 			);
 			path = TopPlacesTests;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 				E3F39BC415D3DF50009A373D /* Photo.m in Sources */,
 				E3F39BC815D3DF50009A373D /* Place+Create.m in Sources */,
 				E339B21615D4E0DE005D46E5 /* Tag+Create.m in Sources */,
+				E39C6C3915DA25BC006EC68C /* BlockTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
