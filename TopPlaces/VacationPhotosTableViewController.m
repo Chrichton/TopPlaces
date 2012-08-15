@@ -54,7 +54,7 @@
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:((Photo *)[self.photos lastObject]).managedObjectContext
+                                                                        managedObjectContext:self.vacationDatabase.managedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
 }

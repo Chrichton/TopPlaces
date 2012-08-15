@@ -14,6 +14,8 @@
 
 @implementation VacationHelper
 
+static UIManagedDocument *vacationDatabase;
+
 + (NSURL *)rootURL {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *url = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -28,8 +30,11 @@
 
 + (void)openVacation:(NSString *)vacationName
           usingBlock:(completion_block_t)completionBlock {
-    NSURL *url = [[self rootURL] URLByAppendingPathComponent:vacationName];
-    UIManagedDocument *vacationDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+    
+    if (!vacationDatabase) {
+        NSURL *url = [[self rootURL] URLByAppendingPathComponent:vacationName];
+        vacationDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+    }
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[vacationDatabase.fileURL path]]) {
         [vacationDatabase saveToURL:vacationDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
