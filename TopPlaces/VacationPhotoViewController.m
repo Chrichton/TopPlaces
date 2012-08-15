@@ -17,6 +17,15 @@
 
 @synthesize vacationDatabase = _vacationDatabase;
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [VacationHelper isPhotoWithId:self.photo.photoId inVacation:self.vacationDatabase usingBlock:^(BOOL isTrue) {
+        if (!isTrue)
+            [self.navigationController popViewControllerAnimated:YES];
+    }];
+}
+
 - (IBAction)unVisitClicked:(id)sender {
     [VacationHelper unVisitPhoto:self.photo inVacation:self.vacationDatabase];
     self.photo = nil;

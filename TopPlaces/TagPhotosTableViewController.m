@@ -1,23 +1,22 @@
 //
-//  VacationPhotosTableViewController.m
+//  TagPhotosTableViewController.m
 //  TopPlaces
 //
-//  Created by Heiko Goes on 09.08.12.
+//  Created by Heiko Goes on 15.08.12.
 //  Copyright (c) 2012 Heiko Goes. All rights reserved.
 //
 
-#import "VacationPhotosTableViewController.h"
+#import "TagPhotosTableViewController.h"
 #import "Photo.h"
 #import "VacationPhotoViewController.h"
-#import "FlickrFetcher.h"
 
-@interface VacationPhotosTableViewController ()
+@interface TagPhotosTableViewController ()
 
 @end
- 
-@implementation VacationPhotosTableViewController
 
-@synthesize place = _place, vacationDatabase = _vacationDatabase;
+@implementation TagPhotosTableViewController
+
+@synthesize tag = _tag, vacationDatabase = _vacationDatabase;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -25,7 +24,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"VacationPhotosTableViewCell";
+    static NSString *CellIdentifier = @"TagPhotosTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -36,7 +35,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"VacationPhotosToVacationhoto"]) {
+    if ([segue.identifier isEqualToString:@"TagPhotosToVacationPhoto"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
@@ -49,7 +48,7 @@
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-    request.predicate = [NSPredicate predicateWithFormat:@"place.name = %@", self.place.name];
+    request.predicate = [NSPredicate predicateWithFormat:@"%@ IN tags", self.tag];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
@@ -59,9 +58,9 @@
                                                                                    cacheName:nil];
 }
 
-- (void)setPlace:(Place *)place {
-    if (_place != place) {
-        _place = place;
+- (void)setTag:(Tag *)tag {
+    if (_tag != tag) {
+        _tag = tag;
         [self setupFetchedResultsController];
     }
 }

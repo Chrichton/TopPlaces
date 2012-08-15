@@ -44,7 +44,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Place *place = [self.fetchedResultsController objectAtIndexPath:indexPath];
         controller.vacationDatabase = self.vacationDatabase;
-        controller.photos = [place.photos allObjects];
+        controller.place = place;
     }
 }
 

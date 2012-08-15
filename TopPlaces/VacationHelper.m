@@ -49,14 +49,18 @@ static UIManagedDocument *vacationDatabase;
     }
 }
 
++ (void)isPhotoWithId: (NSString *)photoId inVacation: (UIManagedDocument *)vacation usingBlock:(check_block_t)checkBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    request.predicate = [NSPredicate predicateWithFormat:@"unique =%@", photoId];
+    
+    NSError *error;
+    Photo *photo = [[vacation.managedObjectContext executeFetchRequest:request error:&error] lastObject];
+    checkBlock(photo != nil);
+}
+
 + (void)isPhotoWithId: (NSString *)photoId inVacationWithName: (NSString *)vacationName usingBlock:(check_block_t)checkBlock {
     [self openVacation:vacationName usingBlock:^(UIManagedDocument *vacation) {
-        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-        request.predicate = [NSPredicate predicateWithFormat:@"unique =%@", photoId];
-        
-        NSError *error;
-        Photo *photo = [[vacation.managedObjectContext executeFetchRequest:request error:&error] lastObject];
-        checkBlock(photo != nil);
+        return [self isPhotoWithId: photoId inVacation:vacation usingBlock:checkBlock];
     }];
 }
 

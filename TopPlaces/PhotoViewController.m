@@ -34,7 +34,7 @@
 }
 
 - (void)updateVisitButton {
-    self.visitButton.title =  self.isPhotoInVacation ? @"Unvisit" : @"Visit";
+    self.visitButton.title =  self.isPhotoInVacation ? @"UnVisit" : @"Visit";
 }
 
 - (void)viewWillAppear:(BOOL)animated {

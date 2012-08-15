@@ -10,7 +10,7 @@
 #import "VacationHelper.h"
 #import "Photo.h"
 #import "Tag.h"
-#import "VacationPhotosTableViewController.h"
+#import "TagPhotosTableViewController.h"
 
 @interface VacationTagsTableViewController ()
 
@@ -40,12 +40,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"VacationTagsToPhotos"]) {
-        VacationPhotosTableViewController *controller = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"VacationTagsToTagPhotos"]) {
+        TagPhotosTableViewController *controller = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
         controller.vacationDatabase = self.vacationDatabase;
-        controller.photos = [tag.photos allObjects];
+        controller.tag = tag;
     }
 }
 

@@ -19,6 +19,8 @@ typedef void (^check_block_t)(BOOL checkResult);
 + (void)openVacation:(NSString *)vacationName
           usingBlock:(completion_block_t)completionBlock;
 
++ (void)isPhotoWithId: (NSString *)photoId inVacation: (UIManagedDocument *)vacation usingBlock:(check_block_t)checkBlock;
+
 + (void)isPhotoWithId: (NSString *)photoId inVacationWithName: (NSString *)vacationName usingBlock:(check_block_t)checkBlock;
 
 + (void)visitPhoto: (PhotoDefintion *)photoDefinition inVacationWithName: (NSString *)vacationName;
