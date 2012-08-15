@@ -44,6 +44,7 @@
         VacationPhotosTableViewController *controller = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.vacationDatabase = self.vacationDatabase;
         controller.photos = [tag.photos allObjects];
     }
 }
